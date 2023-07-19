@@ -1,0 +1,647 @@
+version: "3.1"
+
+rules:
+
+- rule: happy path
+  steps:
+  - intent: greet
+  - action: action_sender
+  - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: All Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: All Fallback
+  steps:
+  - intent: out_of_scope
+  - action: utter_default
+
+- rule: main menu
+  steps:
+  - intent: main_menu
+  - action: utter_please_rephrase
+
+
+- rule: Benefits rule
+  steps:
+  - intent: FAQ_benefit
+  - slot_was_set:
+    - subject: any
+  - action: action_subject_check
+  - action: utter_benefit
+  - action: action_restart
+
+
+- rule: Criteria related queries-1
+  steps:
+  - intent: FAQ_criteria
+  - slot_was_set:
+    - subject: any
+  - action: action_subject_check
+  - action: utter_criteria
+  - action: action_restart
+
+
+- rule: Deduction related query
+  steps:
+  - intent: FAQ_deduction
+  - slot_was_set:
+    - subject: any
+  - action: action_subject_check
+  - action: utter_deduction
+  - action: action_restart
+
+
+- rule: interest rate queries
+  steps:
+  - intent: FAQ_rates
+  - slot_was_set:
+    - subject: any
+  - action: action_subject_check
+  - action: utter_rates
+  - action: action_restart
+
+
+- rule: interactive_story_1
+  steps:
+  - intent: inform_subject
+  - action: action_subject_check
+  - action: utter_inform_subject
+
+- rule: Process single story
+  steps:
+  - intent: FAQ_process
+  - slot_was_set:
+    - subject: any
+  - action: action_subject_check
+  - action: level3_form
+  - active_loop: level3_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_process
+  - action: action_restart
+
+
+- rule: User single story
+  steps:
+  - intent: FAQ_user
+  - slot_was_set:
+    - subject: any
+  - action: action_subject_check
+  - action: utter_user
+  - action: action_restart
+
+
+- rule: Objective single story
+  steps:
+  - intent: FAQ_objective
+  - slot_was_set:
+    - subject: any
+  - action: action_subject_check
+  - action: utter_objective
+  - action: action_restart
+
+
+- rule: interactive_story_11
+  steps:
+  - intent: FAQ_duration
+  - slot_was_set:
+    - subject: multipurpose advance
+  - action: action_subject_check
+  - action: level3_form
+  - active_loop: level3_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_duration
+  - action: action_restart
+
+
+- rule: interactive_story_1
+  steps:
+  - intent: FAQ_eligibility
+  - slot_was_set:
+    - subject: multipurpose advance
+  - action: action_subject_check
+  - action: level3_form
+  - active_loop: level3_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_eligibility
+  - action: action_restart
+
+
+- rule: interactive_story_2
+  condition:
+  - slot_was_set:
+    - subject2
+  steps:
+  - intent: FAQ_entitlements
+  - action: action_subject2_check
+  - action: level2_form
+  - active_loop: level2_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tables
+  - action: action_restart
+  - action: action_listen
+
+
+- rule: interactive_story_2
+  condition:
+  - slot_was_set:
+    - subject
+  - slot_was_set:
+    - subject2: null
+  steps:
+  - intent: FAQ_entitlements
+  - action: action_subject_check
+  - action: level_form
+  - active_loop: level_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_entitlement
+
+
+- rule: All Fallback1
+  steps:
+  - intent: service_common
+  - action: utter_service_common
+
+
+- rule: All Fallback2
+  steps:
+  - intent: compensation_common
+  - action: utter_compensation_common
+
+
+- rule: All Fallback3
+  steps:
+  - intent: employee_common
+  - action: utter_employee_common
+
+- rule: All Fallback4
+  steps:
+  - intent: advances_common
+  - action: utter_advances_common
+
+
+- rule: All Fallback5
+  steps:
+  - intent: social_common
+  - action: utter_social_common
+
+- rule: All Fallback6
+  steps:
+  - intent: emp_rel_common
+  - action: utter_emp_rel_common
+
+
+- rule: All Fallback7
+  steps:
+  - intent: accommodation_common
+  - action: utter_accommodation_common
+
+- rule: All Fallback8
+  steps:
+  - intent: rajbhasha_common
+  - action: utter_rajbhasha_common
+  
+- rule: All Fallback9
+  steps:
+  - intent: misconduct_common
+  - action: utter_misconduct_common
+  
+- rule: All Fallback10
+  steps:
+  - intent: suspended_common
+  - action: utter_suspended_common
+
+- rule: All Fallback11
+  steps:
+  - intent: others_common
+  - action: utter_others_common 
+  
+- rule: study india
+  steps:
+  - intent: study_india
+  - action: utter_study_india
+
+
+- rule: study india
+  steps:
+  - intent: study_india_ele
+  - action: utter_study_india_ele
+
+
+- rule: study abroad
+  steps:
+  - intent: study_abroad
+  - action: utter_study_abroad
+
+
+- rule: study abroad
+  steps:
+  - intent: study_abroad_ele
+  - action: utter_study_abroad_ele
+
+
+- rule: travel air
+  steps:
+  - intent: travel_air_ent
+  - action: utter_travel_air_ent
+
+
+- rule: travel train
+  steps:
+  - intent: travel_train_ent
+  - action: utter_travel_train_ent
+
+
+- rule: travel road
+  steps:
+  - intent: travel_road_ent
+  - action: utter_travel_road_ent
+
+
+- rule: conveyance for car
+  steps:
+  - intent: conveyance_car_ent
+  - action: level_form
+  - active_loop: level_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_conveyance_car_ent
+
+
+- rule: conveyance for car
+  steps:
+  - intent: conveyance_bike_ent
+  - action: utter_conveyance_bike_ent
+
+
+- rule: conveyance reim for car
+  steps:
+  - intent: conveyance_car_rem_ent
+  - action: utter_conveyance_car_rem_ent
+
+
+- rule: conveyance reim for bike
+  steps:
+  - intent: conveyance_bike_rem_ent
+  - action: utter_conveyance_bike_rem_ent
+
+- rule: merit award qualifiactions
+  steps:
+  - intent: merit_qual
+  - action: utter_merit_qual
+- rule: interactive_story_1
+  steps:
+  - intent: inform_subject2
+    entities:
+    - subject2: any
+  - action: action_subject2_check
+  - action: level2_form
+  - active_loop: level2_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tables
+  - action: action_restart
+
+- rule: fp_saarc_pro
+  steps:
+  - intent: fp_saarc_pro
+  - action: utter_fp_saarc_pro
+
+- rule: fp_ethiopia_pro
+  steps:
+  - intent: fp_ethiopia_pro
+  - action: utter_fp_ethiopia_pro
+
+- rule: fp_kenya_pro
+  steps:
+  - intent: fp_kenya_pro
+  - action: utter_fp_kenya_pro
+
+- rule: fp_uganda_pro
+  steps:
+  - intent: fp_uganda_pro
+  - action: utter_fp_uganda_pro
+
+- rule: fp_afg_dub_nig_pro
+  steps:
+  - intent: fp_afg_dub_nig_pro
+  - action: utter_fp_afg_dub_nig_pro
+
+- rule: fp_fiji_pro
+  steps:
+  - intent: fp_fiji_pro
+  - action: utter_fp_fiji_pro
+
+- rule: fp_maldova_pro
+  steps:
+  - intent: fp_maldova_pro
+  - action: utter_fp_maldova_pro
+
+- rule: fp_saarc_ded
+  steps:
+  - intent: fp_saarc_ded
+  - action: utter_fp_saarc_ded
+
+- rule: fp_ethiopia_ded
+  steps:
+  - intent: fp_ethiopia_ded
+  - action: utter_fp_ethiopia_ded
+
+- rule: fp_kenya_ded
+  steps:
+  - intent: fp_kenya_ded
+  - action: utter_fp_kenya_ded
+
+- rule: fp_uganda_ded
+  steps:
+  - intent: fp_uganda_ded
+  - action: utter_fp_uganda_ded
+
+- rule: fp_afg_dub_nig_ded
+  steps:
+  - intent: fp_afg_dub_nig_ded
+  - action: utter_fp_afg_dub_nig_ded
+
+- rule: fp_fiji_ded
+  steps:
+  - intent: fp_fiji_ded
+  - action: utter_fp_fiji_ded
+
+- rule: fp_maldova_ded
+  steps:
+  - intent: fp_maldova_ded
+  - action: utter_fp_maldova_ded
+
+- rule: fp_saarc_ben
+  steps:
+  - intent: fp_saarc_ben
+  - action: utter_fp_saarc_ben
+
+- rule: fp_ethiopia_ben
+  steps:
+  - intent: fp_ethiopia_ben
+  - action: utter_fp_ethiopia_ben
+
+- rule: fp_kenya_ben
+  steps:
+  - intent: fp_kenya_ben
+  - action: utter_fp_kenya_ben
+
+- rule: fp_uganda_ben
+  steps:
+  - intent: fp_uganda_ben
+  - action: utter_fp_uganda_ben
+
+- rule: fp_afg_dub_nig_ben
+  steps:
+  - intent: fp_afg_dub_nig_ben
+  - action: utter_fp_afg_dub_nig_ben
+
+- rule: fp_fiji_ben
+  steps:
+  - intent: fp_fiji_ben
+  - action: utter_fp_fiji_ben
+
+- rule: fp_maldova_ben
+  steps:
+  - intent: fp_maldova_ben
+  - action: utter_fp_maldova_ben
+
+- rule: gi_ord_pro
+  steps:
+  - intent: gi_ord_pro
+  - action: utter_gi_ord_pro
+
+- rule: gi_edli_pro
+  steps:
+  - intent: gi_edli_pro
+  - action: utter_gi_edli_pro
+
+- rule: gi_con_pro
+  steps:
+  - intent: gi_con_pro
+  - action: utter_gi_con_pro
+
+- rule: gi_hba_pro
+  steps:
+  - intent: gi_hba_pro
+  - action: utter_gi_hba_pro  
+
+- rule: gi_ord_ben
+  steps:
+  - intent: gi_ord_ben
+  - action: utter_gi_ord_ben 
+
+- rule: gi_edli_ben
+  steps:
+  - intent: gi_edli_ben
+  - action: utter_gi_edli_ben
+
+- rule: gi_con_ben
+  steps:
+  - intent: gi_con_ben
+  - action: utter_gi_con_ben
+
+- rule: gi_hba_ben
+  steps:
+  - intent: gi_hba_ben
+  - action: utter_gi_hba_ben
+
+- rule: gi_con_eli
+  steps:
+  - intent: gi_con_eli
+  - action: utter_gi_con_eli
+
+- rule: gi_hba_eli
+  steps:
+  - intent: gi_hba_eli
+  - action: utter_gi_hba_eli
+
+- rule: gi_con_ded
+  steps:
+  - intent: gi_con_ded
+  - action: utter_gi_con_ded
+
+- rule: gi_hba_ded
+  steps:
+  - intent: gi_hba_ded
+  - action: utter_gi_hba_ded
+
+- rule: gpai_pro
+  steps:
+  - intent: gpai_pro
+  - action: utter_gpai_pro
+
+- rule: gpai_hot_pro
+  steps:
+  - intent: gpai_hot_pro
+  - action: utter_gpai_hot_pro
+
+- rule: gpai_eli
+  steps:
+  - intent: gpai_eli
+  - action: utter_gpai_eli
+
+- rule: gpai_hot_eli
+  steps:
+  - intent: gpai_hot_eli
+  - action: utter_gpai_hot_eli
+
+- rule: gpai_ben
+  steps:
+  - intent: gpai_ben
+  - action: utter_gpai_ben
+
+- rule: gpai_hot_ben
+  steps:
+  - intent: gpai_hot_ben
+  - action: utter_gpai_hot_ben
+
+- rule: rb_aph_pro
+  steps:
+  - intent: rb_aph_pro
+  - action: utter_rb_aph_pro
+
+- rule: rb_ndh_pro
+  steps:
+  - intent: rb_ndh_pro
+  - action: utter_rb_ndh_pro
+
+- rule: rb_aph_eli 
+  steps:
+  - intent: rb_aph_eli
+  - action: utter_rb_aph_eli
+
+- rule: rb_ndh_eli
+  steps:
+  - intent: rb_ndh_eli
+  - action: utter_rb_ndh_eli
+
+- rule: rb_pt_eli
+  steps:
+  - intent: rb_pt_eli 
+  - action: utter_rb_pt_eli
+
+- rule: rb_aph_ben
+  steps:
+  - intent: rb_aph_ben
+  - action: utter_rb_aph_ben
+
+- rule: rb_ndh_ben
+  steps:
+  - intent: rb_ndh_ben 
+  - action: utter_rb_ndh_ben
+
+- rule: rb_pt_ben
+  steps:
+  - intent: rb_pt_ben
+  - action: utter_rb_pt_ben
+
+- rule: app_e8_e9_pro
+  steps:
+  - intent: app_e8_e9_pro
+  - action: utter_app_e8_e9_pro
+
+- rule: app_e2_e7_pro
+  steps:
+  - intent: app_e2_e7_pro
+  - action: utter_app_e2_e7_pro
+
+- rule: app_sup_pro
+  steps:
+  - intent: app_sup_pro
+  - action: utter_app_sup_pro
+
+- rule: app_wor_pro
+  steps:
+  - intent: app_wor_pro
+  - action: utter_app_wor_pro
+
+- rule: app_e8_e9_dur
+  steps:
+  - intent: app_e8_e9_dur
+  - action: utter_app_e8_e9_dur
+
+- rule: app_e2_e7_dur
+  steps:
+  - intent: app_e2_e7_dur
+  - action: utter_app_e2_e7_dur
+
+- rule: app_sup_dur
+  steps:
+  - intent: app_sup_dur
+  - action: utter_app_sup_dur
+
+- rule: app_wor_dur
+  steps:
+  - intent: app_wor_dur
+  - action: utter_app_wor_dur
+
+- rule: lev_enc_dur
+  steps:
+  - intent: lev_enc_dur
+  - action: utter_lev_enc_dur
+
+- rule: lev_enc_pro
+  steps:
+  - intent: lev_enc_pro
+  - action: utter_lev_enc_pro
+
+- rule: spe_lev_enc_pro
+  steps:
+  - intent: spe_lev_enc_pro
+  - action: utter_spe_lev_enc_pro
+
+- rule: lev_enc_ent
+  steps:
+  - intent: lev_enc_ent
+  - action: utter_lev_enc_ent 
+
+- rule: spe_lev_enc_ent
+  steps:
+  - intent: spe_lev_enc_ent
+  - action: utter_spe_lev_enc_ent
+
+- rule: rule_1_to_5
+  steps:
+  - intent: rule_1_to_5
+  - action: utter_rule_1_to_5
+  
+- rule: rule_6_to_15
+  steps:
+  - intent: rule_6_to_15
+  - action: utter_rule_6_to_15 
+  
+- rule: rule_16_to_25
+  steps:
+  - intent: rule_16_to_25
+  - action: utter_rule_16_to_25 
+  
+- rule: rule_26_to_34
+  steps:
+  - intent: rule_26_to_34
+  - action: utter_rule_26_to_34  

@@ -1,0 +1,49 @@
+# The config recipe.
+# https://rasa.com/docs/rasa/model-configuration/
+recipe: default.v1
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: en
+
+pipeline:
+  - name: SpacyNLP
+    model: "en_core_web_md"
+    case_sensitive: False
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: True
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    constrain_similarities: True
+    epochs: 100
+  - name: FallbackClassifier
+    threshold: 0.6
+    ambiguity_threshold: 0.1
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 50
+    constrain_similarities: true
+
+  # - name: MemoizationPolicy
+  # - name: TEDPolicy
+  #   max_history: 5
+  #   epochs: 10
+  #   constrain_similarities: True
+  #   model_confidence: linear_norm
+  # - name: RulePolicy
+
+

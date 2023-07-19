@@ -1,0 +1,558 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - help me
+    - Hi
+    - Hello
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thanks
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - take care
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - ok
+    - okay
+    - thanks
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what is your name?
+    - how are you?
+    - how r u
+    - who are yu
+    - who are you
+- intent: inform
+  examples: |
+    - [workman](level)
+    - [spervisor](level)
+    - [executive](level)
+    - [workmen](level)
+    - [supervisor](level)
+    - [Supervisor](level)
+    - [Executive](level)
+- intent: inform_subject
+  examples: |
+    - [tna](subject)
+    - [children education advance](subject)
+    - [training need assessment](subject)
+    - [multipurpose](subject)
+    - [multi-purpose advance](subject)
+    - [study leave](subject)
+    - [company sponsored study](subject)
+    - [child care leave](subject)
+    - [ccl](subject)
+    - [mobile](subject)
+    - [telecommunication](subject)
+    - [laptop](subject)
+    - [trans hut](subject)
+    - [guest house](subject)
+    - [transit camp](subject)
+    - [pension](subject)
+    - [contributory pension plan](subject)
+    - [conveyance advance](subject)
+    - [national award](subject)
+    - [sabbatical leave](subject)
+    - [merit award](subject)
+    - [gratuity fund](subject)
+    - [provident fund](subject)
+    - [fmta](subject)
+    - [death relief scheme](subject)
+    - [drs](subject)
+    - [family economic rehabilitation](subject)
+    - [group personal accident insurance](subject)
+    - [welfare facilities](subject)
+    - [funeral expenses](subject)
+    - [pf](subject)
+    - [tour and travel](subject)
+    - [hba](subject) advance
+    - [house buidling advance](subject)
+    - [hra](subject)
+    - [tour](subject)
+    - [commuted leave](subject)
+    - [car](subject)
+    - [special](subject) [additional leave](subject)
+    - [hba](subject)
+    - [advances](subject)
+    - [Advances](subject)
+    - [drs](subject)
+    - [sabbatical](subject)
+    - [leave](subject)
+    - [multipurpose adv](subject)
+    - [promotion](subject)
+    - [acgs](subject)
+    - [uniform](subject)
+    - [night shift](subject)
+    - [compensatory off](subject)
+    - [extra ordinary leave](subject)
+    - [eol](subject)
+    - [quarantine leave](subject)
+    - [transfer](subject)
+    - [fmta](subject)
+    - [prp](subject)
+    - [overtime allowance](subject)
+    - [perks](subject)
+    - [conveyance reimbursement](subject)
+    - [sodexo](subject)
+    - [hardship location](subject)
+    - [pay fixation](subject)
+    - [srinagar-leh transmission system](subject)
+    - [grievance](subject)
+    - [quarter allotment](subject)
+    - [company leased accommodation](subject)
+    - [retention of family](subject)
+    - [guest house accommodation](subject)
+    - [pratiphal](subject)
+    - [conveyance reimbursement](subject)
+    - [departmental trainees](subject)
+    - [location based compensatory allowance](subject)
+    - [foreign posting](subject)
+    - [tour](subject)
+    - [retention of family](subject)
+    - [family retention](subject)
+    - [leave encashment](subject)
+    - [combination of leave](subject)
+    - [special casual leave](subject)
+    - [special maternity leave](subject)
+    - [special additional leave](subject)
+    - [over stayal of leave](subject)
+    - [special disability leave](subject)
+    - [notice period](subject)
+    - [acgs](subject)
+    - [higher study](subject)
+    - [economic rehabilitation] scheme(subject)
+    - [engaging retired supervisors](subject)
+    - [engaging retired executives](subject)
+    - [industrial training] to ca, cma, cs(subject)
+    - [engagement of apprentices](subject)
+    - [deceased employees](subject)
+    - [post retirement](subject)
+    - [welfare facilities](subject)
+    - [medical benefits](subject)
+    - [medical relaxation] claims(subject)
+    - [saksham](subject)
+    - [national pension] scheme(subject)
+    - [group insurance](subject)
+    - [mentoring](subject)
+    - [coaching](subject)
+    - [group personal accident insurance](subject)
+    - [rajbhasha](subject)
+    - [appraisal](subject)
+    - what is [ADC](subject) 
+- intent: inform_subject2
+  examples: |
+    - [payscales](subject2)
+    - [accomodation charges](subject2)
+    - [hotel](subject2)
+    - [payscale](subject2)
+    - [pay scale](subject2)
+    - what is my [payscale](subject2)
+    - [accomodation](subject2) charges for tour
+- intent: FAQ_eligibility
+  examples: |
+    - Who is eligible for [Multi-purpose Advance](subject)?
+    - What is eligibility criteria for [company sponsored higher studies](subject)
+    - Who is eligible for [Children Higher Education Advance](subject)?
+    - What is eligibility criteria for Grant of [Study Leave](subject) for Higher Studies
+    - Who is eligible for [Child Care Leave](subject)
+    - Who is eligible for [CCL](subject)
+    - Who is eligible for POWERGRID [Employees Contributory Pension Plan](subject)?
+    - What is the eligibility criteria for [Sabbatical](subject) Scheme?
+    - What is the eligibility criteria for getting [conveyance advance](subject)?
+    - Who are eligible for Incentive under scheme for [National award](subject)
+    - List of award covered under Incentive scheme for [All India Award](subject)
+    - List of award covered under Incentive scheme for [National Award](subject)
+    - Who are eligible for Incentive under scheme for [All India award](subject)
+    - What is eligibility for [Employees Gratuity Fund](subject)
+    - Who is member of [Employees Provident Fund](subject)
+    - Who are eligible for [Fixed monthly travelling expenses](subject)
+    - Who are eligible for [FMTA](subject)
+    - Who are eligible for [Merit Award](subject) Scheme for the Children of Employees
+    - What is eligibility for Employees [Death Reflief Scheme](subject)
+    - eligibilty for [sabattical](subject) scheme
+    - what is eligibility for [death relief scheme](subject)
+    - who is eligible for [gratuity fund](subject)
+    - eligibility for [multi purpose advance](subject)
+    - eligibily of [company sponsored studies](subject)
+    - what is eligibility for [company sponsored higher study](subject)
+    - eligibility for [children education adv](subject)
+    - who is eligible for [company sponsored education](subject)
+    - what is eligibility for [sabattical](subject)
+    - eligibility for [sabbatical](subject) scheme
+    - Who is eligible for [Multi-purpose Advance](subject)
+    - Who is eligible for POWERGRID [Employees Contributory Pension Plan](subject)
+    - Who are eligible for availing [Travelling Allowance](subject)
+    - What is eligibility for [company sponsored studies](subject)
+    - who is eligible for [HBA](subject)
+    - what is eligibility for [House building advance](subject)
+    - can I apply for [hba](subject)
+    - can I apply for [company sponsored studies](subject)
+    - who can apply for [HBA](subject)?
+    - can i take [sabattical leave](subject)
+    - can i take [child care leave](subject)
+    - can I take [multipurpose advance](subject)
+    - eligibility
+    - [mobile](subject) eligibility
+    - Who are eligible for [overtime allowance](subject)
+    - Who are eligible for [conveyance reimbursement](subject)
+    - who are eligible for Benefits for [hardship location](subject)
+    - who are eligi for [night shift reimbursement](subject)
+    - Who are eligible for [quarter allotment](subject)
+    - What is eligibility criteria for getting [hra](subject)
+    - Who are eligible for [company leased accommodation](subject)
+    - Who are eligible for [retention of family](subject)
+    - Who are eligible for [guest house accommodation](subject)
+    - eligibilty for [pratiphal](subject) scheme
+    - Who are eligible for [conveyance reimbursement](subject)
+    - Who are eligible for [pay fixation](subject)
+    - Who are eligible for [quarantine leave](subject)
+    - Who are eligible for [compensatory off](subject)
+    - Who are eligible for [prp](subject)
+    - Who are eligible for [special casual leave](subject)
+    - Who are eligible for [special additional leave](subject)
+    - Who are eligible for [special disability leave](subject)
+    - Who are eligible for [acgs](subject)
+    - Who are eligible for [higher study](subject)
+    - Who are eligible for [economic rehabilitation] scheme(subject)
+    - Who are eligible for [post retirement] medical benefit(subject)
+    - Who are eligible for [welfare facilities](subject)
+    - Who are eligible for [national pension] scheme(subject)
+    - Who are eligible for [group insurance](subject)
+    - Who are eligible for [mentoring](subject)
+    - Who are eligible for [coaching](subject)
+    - Who are eligible for [group personal accident insurance](subject)
+    - Who are eligible for [rajbhasha] schemes(subject)    
+    
+- intent: FAQ_process
+  examples: |
+    - How should I apply for [Children Education Advance](subject)?
+    - How to apply for [children education advance](subject)
+    - what is the process for [children education advance](subject)?
+    - process for [education advance](subject)
+    - How to fill the [portal in TNA](subject)
+    - what is the process for [TNA](subject)
+    - Procedure of applying [study leave](subject) for higher studies
+    - How to fill TNA(subject)?
+    - How should I apply for [children education advance](subject)
+    - what is the process for [children education advance](subject)
+    - How should I apply for [Children Education Advance](subject)
+    - How to fill [TNA](subject)
+    - what is the procedure to apply for [study leave](subject)
+    - process
+    - what is the procedure to apply for [overtime allowance](subject)
+    - what is the procedure to apply for [perks](subject)
+    - How should I apply for [conveyance reimbursement](subject)
+    - what is the process for [sodexo](subject)?
+    - How should I apply for [quarter allotment](subject)
+    - How should I apply for [hra](subject)
+    - How should I apply for [company leased accommodation](subject)
+    - what is the procedure to apply for [retention of family](subject)
+    - what is the procedure to apply for [guest house accommodation](subject)
+    - what is the procedure to apply for [pratiphal](subject) scheme
+    - How should I apply for [conveyance reimbursement](subject)
+    - How should I apply for [pay fixation](subject)
+    - How should I apply for [commuted leave](subject)
+    - How should I apply for [quarantine leave](subject)
+    - How should I apply for [compensatory off](subject)
+    - How should I apply for [prp](subject)
+    - How should I apply for [uniform](subject)
+    - process to apply for [retention of family](subject)  
+    - How should I apply for [leave encashment](subject)
+    - what is the procedure to apply for [combination of leave](subject)
+    - what is the procedure to apply for [special casual leave](subject)
+    - How should I apply for [special maternity leave](subject)
+    - what is the procedure to apply for [special additional leave](subject)
+    - How should I apply for [Over stayal of leave](subject)
+    - How should I apply for [special disability leave](subject)
+    - what is the procedure to apply for setting off leave towards [notice period](subject)    
+    - what is the procedure to apply for [acgs](subject) 
+    - what is the procedure to apply for [higher study](subject) 
+    - what is the procedure to apply for [economic rehabilitation] scheme(subject) 
+    - what is the procedure for [engaging retired supervisors](subject)
+    - what is the procedure for [engaging retired executives](subject)  
+    - what is the procedure for [industrial training] to ca, cma, cs(subject) 
+    - what is the procedure for [engagement of apprentices](subject) 
+    - what is the procedure to apply for medical benefit for dependents of [deceased employees](subject)
+    - what is the procedure to apply for [post retirement] medical benefit(subject)
+    - How should I apply for [medical benefits](subject)
+    - How should I apply for [medical relaxation] claims(subject)
+    - How should I apply for [saksham](subject) scheme
+    - How should I apply for [national pension] scheme(subject)
+    - what is the procedure to apply for [group insurance](subject)
+    - How should I apply for [mentoring](subject)
+    - How should I apply for [coaching](subject)
+    - How should I apply for [group personal accident insurance](subject)
+    - How should I apply for [rajbhasha] schemes(subject)
+    - How should I apply for [appraisal](subject)    
+    
+    
+- intent: FAQ_duration
+  examples: |
+    - Period of [study leave](subject) for higher studies
+    - How many leaves are entitled in [CCL](subject)
+    - What is the duration of [mobile](subject) reimbursement
+    - What will be the period of the [Sabbatical](subject) Scheme ?
+    - duration of [ccl](subject)
+    - duration of [child care leave](subject)
+    - period of [sabbatacal](subject)
+    - period of [sabbatical](subject) scheme
+    - When is [Employees Gratuity Fund](subject) paid
+    - duration
+    - what is the tenure of [study leave](subject)
+    - What is the duration of [conveyance reimbursement](subject)
+    - what is the duration of Benefits for [hardship location](subject)
+    - What is the duration of [quarter allotment](subject)
+    - What is the duration of [retention of family](subject)
+    - What is the duration of [guest house accommodation](subject)
+    - What is the duration of [compensatory off](subject)
+    - What is the duration of [uniform](subject)
+    - duration of [retention of family](subject)
+    - What is the duration of [leave encashment](subject)
+    - What is the duration of [economic rehabilitation] scheme(subject)
+    - What is the duration of [medical benefits](subject)
+    - What is the duration of [appraisal](subject)
+    
+- intent: FAQ_entitlements
+  examples: |
+    - Entitlements during [study leave](subject) for higher studies
+    - Entitlements during [CCL](subject)
+    - What is entitlment for reimbursement of [mobile](subject) instrument for Workmen
+    - What is entitlment for reimburement of [mobile](subject) instrument for Supervisors
+    - What is entitlment for reimburement of [mobile](subject) instrument for Executives
+    - What is entitlement for reimbursement of [mobile](subject) instrument
+    - What is entitlement for reimbursement of [telecommunication](subject) Workmen
+    - What is entitlement for reimbursement of [telecommunication](subject) Supervisors
+    - What is entitlement for reimbursement of [telecommunication](subject) Executive
+    - What is the entitlement of reimbursement for [laptop](subject)
+    - what is entitlement for reimbursement of [mobile](subject)
+    - What is the amount of [conveyance advance](subject) for the purchase of a motor car for executives
+    - What is the amount of [conveyance advance](subject) for the purchase of a motor car for supervisors?
+    - What is the amount of [conveyance advance](subject) for the purchase of a motor car for workman
+    - What is the amount of [conveyance advance](subject) for the purchase of a two wheeler for executives.
+    - What are entitltement under Incentive scheme for [All India award](subject)
+    - What are entitlement under Incentive scheme for [National award](subject)
+    - What is entitlment for reimbursement of [mobile](subject)
+    - Entitlement to [travel](subject) by air
+    - Entitlement to [travel](subject) by train
+    - Entitlement to [travel](subject) by road
+    - Entitlement for [accomodation charges](subject2)
+    - [hotel](subject2) entitlement on tour
+    - [tour](subject) entitlement
+    - [mobile](subject) entitlement for executive
+    - [casual leave](subject) entitlement
+    - [Optional Holiday](subject) entitlement2
+    - [Earned Leave](subject) entitlement
+    - [Half Pay Leave](subject) entitlement
+    - [Sick Leave](subject) entitlement
+    - [hba](subject) advance entitlement
+    - [house building advance](subject) entitlement
+    - [hba](subject) entitlement
+    - [hotel](subject2) entitlement
+    - entitlement
+    - what is entitlement for reimbursement of [mobile](subject) phone?
+    - what is entitlement for reimbursement of [mobile](subject) phone
+    - what is the maximum amount of [gratuity](subject) i can get now if i resign today?
+    - What is the total amount of [Children Higher Education Advance](subject) admissible to an employee for higher studies of their children
+    - What is amount paid in [Employees Gratuity Fund](subject)
+    - What is the maximum amount admissible under  [Multi-purpose Advance](subject)
+    - What is the amount paid in Employees [Death Reflief](subject) scheme
+    - What is the amount paid for [funeral expenses](subject)
+    - [drs](subject) amount
+    - [hba](subject) amount
+    - [multipurpose](subject) limit
+    - my [mobile](subject) entitlement
+    - entitlement for [tour](subject)
+    - [tour](subject) enttilement
+    - what is [MPA](subject) limit
+    - What is the amount paid for [overtime allowance](subject)
+    - What is the amount paid for [perks](subject)
+    - What is the amount of [conveyance reimbursement](subject) for executives
+    - What is the amount of [conveyance reimbursement](subject) for supervisors
+    - What is the amount of [conveyance reimbursement](subject) for workman
+    - What is entitlement for [quarter allotment](subject)
+    - What is entitlement for [hra](subject)
+    - What is entitlement for [company Leased Accommodation](subject)
+    - What is entitlement for [pratiphal](subject) scheme
+    - What is entitlement for [conveyance reimbursement](subject)
+    - What is entitlement for [location based compensatory Allowance](subject)
+    - What is entitlement for [commuted leave](subject)
+    - What is entitlement for [quarantine leave](subject)
+    - What is entitlement for [compensatory off](subject)
+    - What is entitlement for [prp](subject)
+    - What is entitlement for [uniform](subject)
+    - What is entitlement for [leave encashment](subject)
+    - What is entitlement for [combination of leave](subject)
+    - What is entitlement for [special casual leave](subject)
+    - What is entitlement for [special maternity leave](subject)
+    - What is entitlement for [special additional leave](subject)
+    - What is entitlement for [special disability leave](subject)
+    - What is entitlement for [higher study](subject)
+    - What is entitlement for [economic rehabilitation] scheme(subject)
+    - What is entitlement for [medical benefits](subject)
+    - What is entitlement for [medical relaxation] claims(subject)
+    - What is entitlement for [saksham](subject) scheme    
+- intent: FAQ_benefit
+  examples: |
+    - What are [welfare facilities](subject) available for POWERGRID employees?
+    - What is benefit under [Group Personal Accident Insurance](subject) Scheme
+    - What is benefit under POWERGRID Employees [Family Economic Rehabilitation](subject) Scheme
+    - What are incentives under Incentive scheme for [All India award](subject)
+    - benefit
+    - What are the benefits of [hardship location](subject)
+    - What are the benefits of [pratiphal](subject) scheme
+    - What are the benefits of [departmental trainees](subject)
+    - What are the benefits of [foreign posting](subject)
+    - What are the benefits of [economic rehabilitation] scheme(subject)
+    - What are the benefits of [engaging retired supervisors](subject)
+    - What are the benefits of [engaging retired executives](subject)
+    - What are the Medical benefit for dependents of [deceased employees](subject)
+    - What are the [post retirement] medical benefit(subject)
+    - What are the benefits of [welfare facilities](subject)
+    - What are the benefits of [saksham](subject) scheme    
+    - What are the benefits of [national pension] scheme(subject)
+    - What are the benefits of [group insurance](subject)
+    - What are the benefits of [group personal accident insurance](subject)
+    - What are the benefits of [rajbhasha] schemes(subject)
+    
+
+- intent: FAQ_deduction
+  examples: |
+    - What is per member contribution for POWERGRID [Employees Contributory Pension Plan](subject)?
+    - What is amount of contribution to [Employees Provident Fund](subject)
+    - What is the source of fund for Employees [Death Reflief Scheme](subject)
+    - deduction
+    - deduction for [foreign posting](subject)
+    - deduction on [half pay leave](subject)
+    - deduction on [casual leave](subject)
+    - deductions with [sodexo](subject)
+    - deduction for [commuted leave](subject)
+    - deduction for [quarantine leave](subject)
+    - What is the deduction for [post retirement] medical benefit(subject)
+    - What is the deduction for [Medical benefits](subject)
+    - What is the deduction for [group insurance](subject)    
+- intent: FAQ_criteria
+  examples: |
+    - What is the criteria for allotment of [Guest House](subject)
+- intent: FAQ_rates
+  examples: |
+    - What is the interest rate on [conveyance advance](subject) for motor car
+    - What is the interest rate on [conveyance advance](subject) for electric car
+    - What is the interest rate on [conveyance advance](subject) for two wheeler
+    - What is the rate of reimbursement under [Fixed monthly travelling expenses](subject)
+    - What is the rate of reimbursement under [FMTA](subject)
+    - What is the rate of interest on [Multi-purpose Advance](subject)?
+    - interest rate for [multipurpose advance](subject)
+    - interest rate for [hba](subject) advance
+    - interest rate for [house building advance](subject)
+    - What is the rate for [pay fixation](subject)
+    - What is the rate for [guest house accommodation](subject)
+    - What is the rate for [location based compensatory Allowance](subject)
+    - What is the rate for [industrial training] to ca, cma, cs(subject)
+    - What is the rate for [engagement of apprentices](subject)    
+    - rate
+- intent: FAQ_objective
+  examples: |
+    - What is the Purpose of [Sabbatical](subject) Scheme
+    - What is the objective of [Sabbatical](subject) Scheme
+    - what is the purpose of [ccl](subject)
+- intent: FAQ_information
+  examples: |
+    - What is scheme for [Payment of Funeral Expenses](subject)
+    - What is [Group Personal Accident Insurance](subject) Scheme?
+    - what is POWERGRID [Employees Family Economic Rehabilitation](subject) Scheme
+    - what is [ccl](subject)
+- intent: FAQ_user
+  examples: |
+    - [tna](subject) login
+    - What will be my login & password for [tna](subject)
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - dfgdfgdfg
+    - dfgdfgdfgdfgd
+    - idjfiosdjfois
+    - yerfwegryuse
+    - cjknbkcvnblkjdf
+- intent: inform_weather
+  examples: |
+    - what is the weather today?
+- synonym: conveyance
+  examples: |
+    - car
+    - bike
+- synonym: advance
+  examples: |
+    - loan

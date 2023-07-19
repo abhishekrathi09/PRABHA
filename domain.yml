@@ -1,0 +1,4700 @@
+version: '3.1'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+intents:
+- choose_level
+- inform_subject
+- FAQ_entitlements
+- FAQ_entitlement
+- choose_grade
+- FAQ_eligibility
+- nlu_fallback
+- FAQ_process
+- FAQ_rates
+- greet
+- FAQ_user
+- inform_subject2
+- FAQ_benefit
+- FAQ_criteria
+- FAQ_deduction
+- FAQ_duration
+- FAQ_objective
+- FAQ_information
+- affirm
+- bot_challenge
+- deny
+- goodbye
+- inform
+- mood_great
+- mood_unhappy
+- MPA_common
+- CHEA_common
+- TNA_common
+- MPA_not_Eligible
+- MPA_installments
+- CHEA_FAQ_age
+- CHEA_FAQ_education
+- Login_query
+- Training_Options
+- service_common
+- emp_rel_common
+- compensation_common
+- employee_common
+- rajbhasha_common
+- accommodation_common
+- others_common 
+- social_common
+- advances_common
+- suspended_common
+- misconduct_common
+- study_india
+- study_abroad
+- travel_air_ent
+- travel_train_ent
+- travel_road_ent
+- conveyance_car_ent
+- conveyance_bike_ent
+- merit_qual
+- conveyance_car_rem_ent
+- conveyance_bike_rem_ent
+- fp_saarc_ben
+- fp_kenya_ben
+- fp_afg_dub_nig_ben
+- fp_fiji_ben
+- fp_uganda_ben
+- fp_maldova_ben
+- fp_ethiopia_ben
+- fp_saarc_ded
+- fp_kenya_ded
+- fp_afg_dub_nig_ded
+- fp_fiji_ded
+- fp_uganda_ded
+- fp_maldova_ded
+- fp_ethiopia_ded
+- fp_saarc_pro
+- fp_kenya_pro
+- fp_afg_dub_nig_pro
+- fp_fiji_pro
+- fp_uganda_pro
+- fp_maldova_pro
+- fp_ethiopia_pro
+- gi_ord_pro
+- gi_edli_pro
+- gi_con_pro
+- gi_hba_pro
+- gi_ord_ben
+- gi_edli_ben
+- gi_con_ben
+- gi_hba_ben
+- gi_con_eli
+- gi_hba_eli
+- gi_con_ded
+- gi_hba_ded
+- gpai_pro
+- gpai_hot_pro
+- gpai_eli
+- gpai_hot_eli
+- gpai_ben
+- gpai_hot_ben
+- rb_aph_pro
+- rb_ndh_pro
+- rb_aph_eli
+- rb_ndh_eli
+- rb_pt_eli 
+- rb_aph_ben
+- rb_ndh_ben
+- rb_pt_ben
+- app_e8_e9_pro
+- app_e2_e7_pro
+- app_sup_pro
+- app_wor_pro
+- app_e8_e9_dur
+- app_e2_e7_dur
+- app_sup_dur
+- app_wor_dur
+- lev_enc_dur
+- lev_enc_pro
+- spe_lev_enc_pro
+- lev_enc_ent
+- spe_lev_enc_ent
+- study_india_ele
+- study_abroad_ele
+- rule_1_to_5
+- rule_6_to_15
+- rule_16_to_25
+- rule_26_to_34 
+- main_menu
+entities:
+- grade
+- grade_supervisors
+- level
+- subject
+- subject2
+- travel_mode
+slots:
+  user:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom   
+  subject:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: subject
+  travel_mode:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: travel_mode
+  grade:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: grade
+  subject2:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: subject2
+  subject_cat:
+    type: categorical
+    influence_conversation: false
+    values:
+    - children education advance
+    - training need assessment
+    - multi-purpose advance
+    - tna
+    - study leave
+    - company sponsored study
+    - child care leave
+    - ccl
+    - mobile
+    - telecommunication
+    - laptop
+    - trans hut
+    - guest house
+    - transit camp
+    - contributory pension plan
+    - conveyance advance
+    - national award
+    - sabbatical leave
+    - merit award
+    - gratuity fund
+    - provident fund
+    - death relief scheme
+    - drs
+    - family economic rehabilitation
+    - group personal accident insurance
+    - welfare facilities
+    - funeral expenses
+    - pf
+    - tour and travel
+    - casual leave
+    - optional holiday
+    - earned leave
+    - half pay leave
+    - sick leave
+    - maternity leave
+    - paternity leave
+    - hba
+    - house building advance
+    - leave
+    - advances
+    - promotion
+    - acgs
+    - transfer
+    - commuted leave
+    - extra ordinary leave
+    - eol
+    - quarantine leave
+    - compensatory off
+    - night shift
+    - uniform
+    - fmta
+    - prp
+    - overtime allowance
+    - perks
+    - sodexo
+    - hardship location
+    - pay fixation
+    - srinagar-leh transmission system
+    - grievance 
+    - quarter allotment
+    - hra
+    - company leased accommodation
+    - retention of family
+    - pratiphal
+    - conveyance reimbursement
+    - departmental trainees
+    - location based compensatory allowance
+    - foreign posting
+    - leave encashment
+    - combination of leave
+    - special casual leave
+    - special maternity leave
+    - special additional leave
+    - over stayal of leave
+    - special disability leave
+    - notice period
+    - acgs
+    - higher study
+    - economic rehabilitation
+    - engaging retired supervisors
+    - engaging retired executives
+    - industrial training
+    - engagement of apprentices
+    - deceased employees
+    - post retirement
+    - welfare facilities
+    - medical benefits
+    - medical relaxation
+    - saksham
+    - national pension
+    - nps
+    - group insurance
+    - mentoring
+    - coaching
+    - group personal accident insurance
+    - rajbhasha
+    - appraisal 
+    mappings:
+    - type: from_entity
+      entity: subject_cat
+  level:
+    type: categorical
+    influence_conversation: true
+    values:
+    - board level
+    - workmen
+    - supervisors
+    - executives
+    - trainees
+    mappings:
+    - type: from_entity
+      entity: level
+  travel_mode_cat:
+    type: categorical
+    influence_conversation: true
+    values:
+    - air
+    - train
+    - road
+    mappings:
+    - type: from_entity
+      entity: travel_mode
+  grade_executives:
+    type: categorical
+    influence_conversation: true
+    values:
+    - e9
+    - e8
+    - e7
+    - e6
+    - e5
+    - e4
+    - e3
+    - e2
+    mappings:
+    - type: custom
+  grade_board_level:
+    type: categorical
+    influence_conversation: true
+    values:
+    - cmd
+    - functional director
+    mappings:
+    - type: custom
+  grade_workmen:
+    type: categorical
+    influence_conversation: true
+    values:
+    - wsg
+    - w11
+    - w10
+    - w9
+    - w8
+    - w7
+    - w6
+    - w5
+    - w4
+    - w3
+    - w2
+    - w1
+    - w0
+    mappings:
+    - type: custom
+  grade_supervisors:
+    type: categorical
+    influence_conversation: true
+    values:
+    - ssg
+    - s4
+    - s3
+    - s2
+    - s1
+    mappings:
+    - type: custom
+  grade_trainees:
+    type: categorical
+    influence_conversation: true
+    values:
+    - executive trainee
+    - non-executive trainee
+    mappings:
+    - type: custom
+responses:
+  utter_greet:
+  - text: Hey {user}! How can I help you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Thanks for getting in touch. Goodbye.
+  utter_iamabot:
+  - text: I am a bot.
+  utter_process:
+  - text: "The TNA portal has following pages  \n
+       Page 1: Fill/Update your Profile  \n 
+       Page 2: Fill/Update your functional competencies  \n 
+       Page 3: Fill/Update your behavioral competencies  \n 
+       Page 4:  Fill your Training choices (Max 3choices - 1 functional/cross functional; 1 managerial; 1 behavioral)  \n 
+       Page 5 : Your feedback on the programs attended in previous year  \n 
+       Page 6 : Your feedback on the overall HRD systems and processes  \n 
+       Page 7: Fill competencies of the departments you have earlier worked" 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: tna
+  - text: Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications> Request - Children Higher Education Advance
+    condition:
+    - type: slot
+      name: subject_cat
+      value: children education advance
+  - text: Go to ESS> Employee Login > Employee Self Service > Payments > Loan> Multi-purpose Advance
+    condition:
+    - type: slot
+      name: subject_cat
+      value: multi-purpose advance
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department, in the  prescribed format, for permission to join the course as soon as an advertisement/notification is issued. For other details, please refer HR Policy portal.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: study leave
+  - text: "1. Laptop to be compulsorily purchased using Credit/ Debit Card or Internet banking only through website of OEM/ e-tailers/ reputed electronic stores. Reimbursement not permissible if transaction done through Cash/ Cheque mode.  \n
+       2. Invoice should contain Employee Name and Address  \n
+       3. Employee should claim reimbursement within 6 months from purchase date."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: laptop
+  - text: " Employee will apply for approval & claim through ESS  \n
+          - Go to ESS> Employee Login > Tour and Travel " 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: tour and travel
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: child care leave
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: ccl
+  - text: Go to ESS> Employee Login > Employee Self Service > Payments > Reimbursement Module - Claims/ Advances
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+  - text: Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications > Digital Services Reimbursment
+    condition:
+    - type: slot
+      name: subject_cat
+      value: telecommunication
+  - text: Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+  - text: Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+  - text: Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request
+    condition:
+    - type: slot
+      name: subject_cat
+      value: optional holiday
+  - text: Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+  - text: Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: maternity leave
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: paternity leave
+  - text: Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications > Request-HBA Advance
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hba
+  - text: Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications > Request-HBA Advance
+    condition:
+    - type: slot
+      name: subject_cat
+      value: house building advance
+  - text: Employee/ Nominee has to apply through Pre-retirement portal
+    condition:
+    - type: slot
+      name: subject_cat
+      value: gratuity fund
+  - text: Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications > Request-Conveyance Advance
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance advance
+  - text: Eligible employees can apply against notification
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company sponsored study
+  - text: All employees are automatically covered
+    condition:
+    - type: slot
+      name: subject_cat
+      value: contributory pension plan
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sabbatical leave
+  - text: Employee will apply in prescribed form through proper channel
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national award
+  - text: Employee/ Nominee has to apply through Pre-retirement portal
+    condition:
+    - type: slot
+      name: subject_cat
+      value: provident fund
+  - text: Employee will apply in prescribed form through proper channel
+    condition:
+    - type: slot
+      name: subject_cat
+      value: merit award
+  - text: Shall be paid automatically to the nominee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: drs
+  - text: Shall be paid automatically to the nominee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: death relief scheme
+  - text: Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+  - text: "Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request;   \n
+           Medical certificate required for Commuted Leave of more than 7 days" 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: commuted leave
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department. 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: extra ordinary leave
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department. 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: eol      
+  - text: Employee will apply through Proper Channel to the Head of Substation/Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarantine leave
+  - text: Leave quota shall be created by concerned HR based on record of additional work done
+    condition:
+    - type: slot
+      name: subject_cat
+      value: compensatory off
+  - text:  "Promotion upto E7 shall be through CPC proceedings which shall be conducted during Jan-Mar every year \n
+            Promotion above E7 shall be through CSC proceedings "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: executives
+  - text: Promotion for within supervisory grade shall be through DPC proceedings which shall generally be in March/ April
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: supervisors
+  - text: Promotion for within workmen grade shall be through DPC proceedings which shall generally be in June/ July
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: workmen
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: trainees
+  - text: Employee needs to register their request in Transfer Request Portal in Intranet
+    condition:
+    - type: slot
+      name: subject_cat
+      value: transfer
+  - text: ACGS notification shall be issued by CC. Employees need to apply against specific notification, as per the procedure prescribed.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: acgs
+  - text: Sites shall upload the night shift details in specified format in ESS & forward excel file to respective HR department
+    condition:
+    - type: slot
+      name: subject_cat
+      value: night shift
+  - text: " Corporate HR-IE Group shall compile MoU rating, AAR rating, Annual Basic pay & PAT  \n
+           Calculation of the PRP shall be done through ERP and necessary communication shall  \n
+           be forwarded to Corporate Finance department for payment after approval of the Competent Authority."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: prp
+  - text: Employees to be covered shall be approved by the concerned CGM/ Sr. GM heading O&M of Region
+    condition:
+    - type: slot
+      name: subject_cat
+      value: fmta
+  - text: Go to ESS> Employee Login > Employee Self Service > Reimbursement Module - Claims/ Advances > Create
+    condition:
+    - type: slot
+      name: subject_cat
+      value: uniform
+  - text: One time written communication to the concerned nodal officer notified by CC/Regions Employees desirous to change the option for perquisites under cafeteria approach shall do so in ESS before 15th April.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sodexo
+  - text: " Register of overtime work shall be maintained in the form given in Annexure-I \n
+           Claim for overtime allowance shall be preferred by the employee concerned, in the proforma at Annexure-II "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: overtime allowance
+  - text: " Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications > Cafeteria \n
+    Changes if any required, to be submitted before 15th April "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: perks
+  - text: Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications > Conveyance Reimbursment Claims
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance reimbursement
+  - text: " Stage I - Take up with immediate supervisor \n
+           Stage II - Submit grievance in prescribed form through ESS \n
+           Stage III - Appeal to Appeals committee in the prescribed form"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: grievance
+    - type: slot
+      name: level
+      value: executives
+  - text: " Stage I - Take up with immediate supervisor \n
+           Stage II - Submit grievance to HoD through ESS \n
+           Stage III - Submit grievance to Grievance committee in prescribed form "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: grievance 
+    - type: slot
+      name: level
+      value: supervisors
+  - text: " Stage I - Take up with immediate supervisor \n
+           Stage II - Submit grievance to HoD through ESS \n
+           Stage III - Submit grievance to Grievance committee in prescribed form "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: grievance
+    - type: slot
+      name: level
+      value: workmen      
+  - text: Employee may approach concerned HR department for process of applying for quarters
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarter allotment
+  - text: A declaration in the prescribed proforma to be submitted to the concerned HR department
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hra
+  - text: Executive needs to apply in prescribed format to the respective HR department, enclosing duly signed lease agreement in the specified format
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company leased accommodation
+  - text: Executive has to submit their application in the prescribed format to the respective HR deparment, attaching necessary documentary proof
+    condition:
+    - type: slot
+      name: subject_cat
+      value: retention of family
+  - text: Will be allotted on prior intimation, subject to availability of accommodation, on ‘First Come First Served’ basis. 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: guest house
+  - text: Dedicated portal created for the scheme
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pratiphal   
+  - text: select foreign posting
+    buttons:
+    - title: saarc
+      payload: /fp_saarc_pro
+    - title: kenya
+      payload: /fp_kenya_pro
+    - title:  ethiopia
+      payload: /fp_ethiopia_pro
+    - title: uganda 
+      payload: /fp_uganda_pro
+    - title: afghanistan, dubai & nigeria 
+      payload: /fp_afg_dub_nig_pro
+    - title: fiji 
+      payload: /fp_fiji_pro
+    - title: maldova
+      payload: /fp_maldova_pro 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: foreign posting
+  - text: " 1. Fixation of pay except on promotion shall be done by HR Department \n
+            2. Pay fixation on absorption of a deputationist/lienholder and appointment of re-employed pensioners, shall be by HR Department in consultation with Finance Department \n
+            3. Fixation of pay on promotion shall be done by Finance Department "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pay fixation
+  - text: Go to ESS> Employee Login > Employee Self Service > Reimbursement Module - Claims/ Advances > Create
+    condition:
+    - type: slot
+      name: subject_cat
+      value: uniform
+  - text: " Go to ESS> Employee Login > Employee Self Service > Working Time > Leave Request & Holidays > Create Leave Request \n
+           ESS system is designed to restrict combination of leaves "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: combination of leave
+  - text: Employee will apply through Proper Channel to the Head of  Substation/Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special casual leave
+  - text: Employee will apply through Proper Channel to the Head of  Substation/Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special maternity leave
+  - text: Go to ESS> Employee Login > Employee Self Service > Payment > Encash your available leaves
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special additional leave
+  - text: Employee who is absent without sanctioned leave shall be deemed to have voluntarily left the service of the Corporation, without notice
+    condition:
+    - type: slot
+      name: subject_cat
+      value: over stayal of leave
+  - text: " 1. Employee will apply in specified format through Proper Channel to the Head of  Substation/Region/Department. \n
+            2. Special Disability Leave will be granted on the basis of recommendations of a committee "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special disability leave
+  - text: Employee who tenders their resignation have to give specific request
+    condition:
+    - type: slot
+      name: subject_cat
+      value: notice period
+  - text: ACGS notification shall be issued by CC. Employees need to apply against specific notification, as per the procedure prescribed.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: acgs
+  - text: Go to ESS> Employee Login > Employee Self Service > Miscellaneous Applications > Grant of Incv for Higher/Addl Qualification
+    condition:
+    - type: slot
+      name: subject_cat
+      value: higher study
+  - text: Permanently disabled employee/ Dependents of deceased employee needs to apply in specified format
+    condition:
+    - type: slot
+      name: subject_cat
+      value: economic rehabilitation
+  - text: Interested supervisors can register themselves in Retired Employees Portal at the POWERGRID intranet
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engaging retired supervisors
+  - text: Willing candidates have to register on the dedicated Registration Link available on the career page of POWERGRID website
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engaging retired executives
+  - text: Aspiring candidates to apply against specific advertisement
+    condition:
+    - type: slot
+      name: subject_cat
+      value: industrial training
+  - text: Aspiring candidates to apply against rolling advertisement
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engagement of apprentices
+  - text: Dependents of deceased employees needs to submit requisite forms to the respective HR department
+    condition:
+    - type: slot
+      name: subject_cat
+      value: deceased employees
+  - text: Ex-Employee needs to apply through Ex-employee portal
+    condition:
+    - type: slot
+      name: subject_cat
+      value: post retirement 
+  - text: Go to ESS> Employee Login > Employee Self Service > Reimbursement Module -Claims/ Advances > Create
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical benefits
+  - text: Employee shall apply through Proper Channel to the Head of Region/Department.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical relaxation 
+  - text: Employees Permanently totally disabled/ Dependents of deceased employee needs to submit an application to the concerned HR department
+    condition:
+    - type: slot
+      name: subject_cat
+      value: saksham 
+  - text: Pension to be applied through NPS portal
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national pension
+  - text: Pension to be applied through NPS portal
+    condition:
+    - type: slot
+      name: subject_cat
+      value: nps      
+  - text: select Group Insurance
+    buttons:
+    - title: Ordinary
+      payload: /gi_ord_pro
+    - title: EDLI
+      payload: /gi_edli_pro
+    - title:  Conveyance
+      payload: /gi_con_pro
+    - title: HBA
+      payload: /gi_hba_pro
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group insurance
+  - text: " 1. Process for Mentor- Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID >Mentoring >Mentor Corner >Be a mentor >Write few words that best describe yourself >Register me as a mentor \n
+            2. Process to find/search a mentor- Go to HRD Corner> SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Mentoring > Mentee Corner > Find a mentor > Search mentor \n
+            3. Scheduling of session by Mentor - Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Mentoring > Mentor > Schedule a session > Schedule the session by selecting the options given therein and notify the mentee \n
+            4. Steps to submit Learning imparted by mentor- Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Mentoring > Mentor Corner > Submit learning imparted \n
+            5. Steps to submit learning gained from session - Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Mentoring > Mentee Corner > Submit learning gained from session "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mentoring
+  - text: " 1. Process for Coach- Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Coaching > Coach Corner > Be a Coach > Write few words that best describe yourself > Choose area of work, Sub area of work, subject of coaching, choose competencies > Register me as a coach \n
+            2. Scheduling of session by Coach - Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Coaching > Coach Corner > Schedule a session > Schedule the session by selecting the options given therein and notify the Coachees. A system generated message will be delivered to coachee on completion of process \n
+            3. Steps to submit Learning imparted by coach- Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Coaching > Coach Corner > Submit learning imparted \n
+            4. Process to find/search a coach - Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Coaching > Coachee Corner > Find a coach > Choose area of work, Sub area of work, subject of coaching, choose competencies > Search coach \n
+            5. Steps to submit learning acquired by coachee - Go to HRD Corner > SANDARSHIKA-The Mentoring & Coaching program of POWERGRID > Coaching > Coachee Corner > Submit learning acquired during sessions "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: coaching
+  - text: select Group Personal Accident Insurance
+    buttons:
+    - title: GPAI
+      payload: /gpai_pro
+    - title: GPAI - Hotline
+      payload: /gpai_hot_pro
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group personal accident insurance
+  - text: select Leave Encashment
+    buttons:
+    - title: Leave Encashment
+      payload: /lev_enc_pro
+    - title: Special Leave Encashment
+      payload: /spe_lev_enc_pro
+    condition:
+    - type: slot
+      name: subject_cat
+      value: leave encashment     
+  - text: select Rajbhasha Schemes
+    buttons:
+    - title: Rajbhasha schemes - Acquiring proficiency in Hindi
+      payload: /rb_aph_pro
+    - title: Rajbhasha Schemes - Noting Drafting in Hindi
+      payload: /rb_ndh_pro    
+    condition:
+    - type: slot
+      name: subject_cat
+      value: rajbhasha 
+  - text: select working level
+    buttons:
+    - title: E8 & E9
+      payload: /app_e8_e9_pro
+    - title: E2 to E7
+      payload: /app_e2_e7_pro
+    - title: Supervisors
+      payload: /app_sup_pro
+    - title: Workmen
+      payload: /app_wor_pro       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: appraisal      
+  - text: Process for the subject is not available. Please contact to HR.
+ 
+  utter_entitlement:
+  - text: select travel mode
+    buttons:
+    - title: Air
+      payload: /travel_air_ent
+    - title: Train
+      payload: /travel_train_ent
+    - title: Road
+      payload: /travel_road_ent
+    condition:
+    - type: slot
+      name: subject_cat
+      value: tour and travel
+  - text: "1. Pay or allowance - Not eligible ;  \n 
+      2. LTC & medical - Within India - permissible;  \n 
+      3. LTC & medical - Abroad - Only dependents staying in India will be allowed;  \n 
+      4. Continuity of service - Eligible;  \n
+      5. PF - If employee chooses to contribute, Company will make a matching contribution  \n
+      6. Promotion - Employee shall not be considered for promotion during study leave, however, the period will count for eligibility. If study not completed, the period will not be considered for promotion or increment.  \n
+      7. Leave - Not considered for earning leave."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: study leave
+  - text: "a) Pay or allowance - Leave Salary (Basic +DA)  \n 
+      b) Medical benefits - Applicable  \n
+      c) Accommodation - Permission to continue existing accommodation  \n 
+      d) Employee's Contribution to Post retirement benefits, PF & Pension - shall continue  \n
+      e) Leave - period not counted for earning leave  \n
+      f) Monthly installments towards various Advances - Continue to be covered"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: ccl
+  - text: "a) Pay or allowance - Leave Salary (Basic +DA)  \n 
+      b) Medical benefits - Applicable  \n
+      c) Accommodation - Permission to continue existing accommodation  \n 
+      d) Employee's Contribution to Post retirement benefits, PF & Pension - shall continue  \n
+      e) Leave - period not counted for earning leave  \n
+      f) Monthly installments towards various Advances - Continue to be covered"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: child care leave
+  - text: "W0 to W6 - 8000 + tax  \n
+       W7 TO WSG - 10000 + tax"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+    - type: slot
+      name: level
+      value: workmen
+  - text: 11000 + tax
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+    - type: slot
+      name: level
+      value: supervisors
+  - text: "Upto E3 – 13000.00 +tax  \n E4 and E5 – 16000.00 + tax  \n E6 – 24000.00 + tax  \n 
+      E7 – 30000.00 + tax  \n E8 – 40000.00 + tax  \n E9 – 50000.00 + tax"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+    - type: slot
+      name: level
+      value: executives
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+    - type: slot
+      name: level
+      value: board level
+  - text: Not Eligible for Mobile Entitlement.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+    - type: slot
+      name: level
+      value: trainees
+  - text: 10000 annually
+    condition:
+    - type: slot
+      name: subject_cat
+      value: telecommunication
+    - type: slot
+      name: level
+      value: workmen
+  - text: 11000 annually
+    condition:
+    - type: slot
+      name: subject_cat
+      value: telecommunication
+    - type: slot
+      name: level
+      value: supervisors
+  - text: " Upto E5 - 12000.00  \n 
+      E6 - 18000.00  \n 
+      E7 - 24000.00  \n 
+      E8(GM and Sr GM) - 36000.00  \n 
+      E8(CGM) - 48000.00  \n 
+      E9 - Unlimited "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: telecommunication
+    - type: slot
+      name: level
+      value: executives
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: telecommunication
+    - type: slot
+      name: level
+      value: board level
+  - text: Not Eligible for this.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: telecommunication
+    - type: slot
+      name: level
+      value: trainees
+  - text: No. of Leaves/ year - Nil
+    condition:
+    - type: slot
+      name: subject_cat
+      value: optional holiday
+    - type: slot
+      name: level
+      value: trainees
+  - text: No. of Leaves/ year - 07
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+    - type: slot
+      name: level
+      value: trainees
+  - text: No. of Leaves/ year - 20
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: trainees
+  - text: Not eligible
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: trainees
+  - text: No. of Leaves/ year - 10
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+    - type: slot
+      name: level
+      value: trainees
+  - text: No. of Leaves/ year - 02 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: optional holiday
+    - type: slot
+      name: level
+      value: board level    
+  - text: No. of Leaves/ year - 12 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+    - type: slot
+      name: level
+      value: board level
+  - text: No. of Leaves/ year - 30 (Accumulation - 300 days)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: board level
+  - text: No. of Leaves/ year - 20 (Accumulation - No ceiling)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: board level
+  - text: Not eligible
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+    - type: slot
+      name: level
+      value: board level
+  - text: No. of Leaves/ year - 02 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: optional holiday
+    - type: slot
+      name: level
+      value: executives    
+  - text: No. of Leaves/ year - 12 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+    - type: slot
+      name: level
+      value: executives
+  - text: No. of Leaves/ year - 30 (Accumulation - 300 days)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: executives
+  - text: No. of Leaves/ year - 20 (Accumulation - No ceiling)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: executives
+  - text: Not eligible
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+    - type: slot
+      name: level
+      value: executives
+  - text: No. of Leaves/ year - 02 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: optional holiday
+    - type: slot
+      name: level
+      value: supervisors  
+  - text: No. of Leaves/ year - 12 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+    - type: slot
+      name: level
+      value: supervisors
+  - text: No. of Leaves/ year - 30 (Accumulation - 300 days)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: supervisors
+  - text: No. of Leaves/ year - 20 (Accumulation - No ceiling)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: supervisors
+  - text: Not eligible
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+    - type: slot
+      name: level
+      value: supervisors
+  - text: No. of Leaves/ year - 02 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: optional holiday
+    - type: slot
+      name: level
+      value: workmen    
+  - text: No. of Leaves/ year - 12 (Accumulation - Nil)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+    - type: slot
+      name: level
+      value: workmen
+  - text: No. of Leaves/ year - 30 (Accumulation - 300 days)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: workmen
+  - text: No. of Leaves/ year - 20 (Accumulation - No ceiling)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: workmen
+  - text: Not eligible
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+    - type: slot
+      name: level
+      value: workmen
+  - text: "Total - 26 weeks, can be availed maximum eight weeks before expected date of delivery.  \n
+           12 weeks, if women employee has more than 2 children  \n
+          6 weeks - for miscarriage/ medical termination of pregnancy"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: maternity leave
+  - text: "1. 15 days (in maximum of two spells during confinement of his wife)  \n
+     2. Applicable for adoption/ surrogacy, within 6 months"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: paternity leave
+  - text: "Level – Amount (Rs.) (excluding taxes)  \n 
+      Workmen - 500000  \n
+      Supervisor – 55000.00  \n 
+      E2 to E4 (ET/AET) – 60000.00  \n 
+      E5 to E7 – 70000.00  \n 
+      E8 – 80000.00  \n 
+      E9 – 100000.00"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: laptop
+  - text: " 1. New Construction/ Purchase - Rs. 60 Lakhs (or) 90 months slary (or) actual cost, whichever is lower  \n
+           2. Enlargement/Renovation & Modernization - Rs. 15 Lakhs (or) 30 months salary (or) actual cost, whichever is lower "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hba
+  - text: "1. New Construction/ Purchase - Rs. 60 Lakhs (or) 90 months slary (or) actual cost, whichever is lower  \n
+           2. Enlargement/Renovation & Modernization - Rs. 15 Lakhs (or) 30 months salary (or) actual cost, whichever is lower"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: house building advance      
+  - text: select type of vehicle
+    buttons:
+    - title: Four wheeler
+      payload: /conveyance_car_ent
+    - title: Two wheeler
+      payload: /conveyance_bike_ent
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance advance
+  - text: Amount of gratuity shall be equal to 15 days wages last drawn by the Employee  for every completed year of service subject to maximum of 40 times 15 days wages or Rs. 20 Lakhs whichever is less
+    condition:
+    - type: slot
+      name: subject_cat
+      value: gratuity fund
+  - text: Select the study area for children education advance
+    buttons:
+    - title: In India
+      payload: /study_india
+    - title: In Abroad
+      payload: /study_abroad
+    condition:
+    - type: slot
+      name: subject_cat
+      value: children education advance
+  - text: The amount of advance admissible shall be three month Basic Pay and prevailing Dearness Allowance as on date of application.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: multi-purpose advance
+  - text: No. of employees as on last date of preceding month * Rs. 450/-
+    condition:
+    - type: slot
+      name: subject_cat
+      value: death relief scheme
+  - text: No. of employees as on last date of preceding month * Rs. 450/-
+    condition:
+    - type: slot
+      name: subject_cat
+      value: drs
+  - text: In the event of death of an eligible employee while in service of the company, the following assistance shall be admissible- An amount of Rs. 20,000/- (Rupees Twenty thousand only)  shall be paid towards the funeral expenses of the deceased employee. This assistance will be admissible even if an employee dies at a place other than his/her place of posting. Free transport wherever available or alternatively reimbursement for cost of transportation for transporting the dead body of the deceased employee to home town or any where in India where the family wishes to conduct the funeral, will be provided.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: funeral expenses
+  - text: "1. Eligible for pay, including allowances, PRP, Advances, Digital Services Reimbursment, Retention of accommodation for staying of family, Medical Facilities, Conveyance reimbursement, Leave, etc.,  \n
+       2. Not eligible for Uniform, Corckery or Mobile set"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company sponsored study
+  - text: Employee Deduction + Company deduction credited to NPS account of the employee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: contributory pension plan
+  - text: Minimum period of 01 Year and maximum upto 03 years
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sabbatical leave
+  - text: One special increment from the date of award
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national award
+  - text: "X level exam - Rs. 4000/-  \n
+     XII level exam - Rs. 5000/- per subject  \n
+     Diploma - Rs. 1500/-  \n
+     BA/ Bcom/ BSc - Rs. 1500/-  \n
+     MA/Mcom/MSc - Rs. 2000/-  \n
+     BE/MBSS/MBA - Rs. 2500/-  \n
+     CA/ICWA - Rs. 2500/-  \n
+     National Talent Search Exam (Stage-II) - Rs. 2000/-  \n
+     National Science Talent Search Exam (Stage-II) - Rs. 2000"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: merit award
+  - text: Amount lying in the PF account of the employee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: provident fund
+  - text: Amount lying in the PF account of the employee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pf
+  - text: Shall not exceed 1/3rd of his “Monthly Emoluments”
+    condition:
+    - type: slot
+      name: subject_cat
+      value: overtime allowance
+  - text: Max of 35% of basic pay
+    condition:
+    - type: slot
+      name: subject_cat
+      value: perks
+  - text: " A Type - All Employees \n
+            B Type - W8 and above \n
+            C Type - E4 and above \n
+            D Type - E6 and above \n
+            Multi-storey Modular Townships \n
+            B1 - Workmen \n
+            B2 - Supervisor \n
+            B3 - E2 to E5 \n
+            C - E6 to E7 \n
+            D - E8 and above "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarter allotment
+  - text: " 1. X Class - 27% \n
+            2. Y Class  - 18% \n
+            3. Z Class - 9% "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hra
+  - text: " E2 - 33080 \n
+            E3 - 37800 \n
+            E4 - 42530 \n
+            E5 - 47250 \n
+            E6 - 51980 \n
+            E7 - 56700 \n
+            E8 - 63000 \n
+            E9 - 70800 \n
+            For X Classs cities Reimbursement of brokerage charges directly to the broker equal to maximum 50%of the rental ceiling "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company leased accommodation
+  - text: " 1. UTTAM - employees who have exhibited extra-ordinary commitment towards work, have a distinguished record of performance, specific contribution in the field of productivity, proven innovative abilities and presence of mind. \n
+            2. Gratitude Notes - For appreciating any good work done by an employee. \n
+            3. SRIJAN - best innovative ideas posted on the Innovation Portal \n
+            4. SANRAKSHA -  high performing Maintenance Specialist Sub Groups \n 
+            5. SITARE - high performing sub stations \n
+            6. RATNA -  high performing and constantly evolving Region/ Project \n
+            7. VISHAARAD - contributions to POWERGRID’s Knowledge Management Portal and the e-learning portal \n
+            8. GYAN PRAVARTAK - contribution towards conducting effective training sessions as a faculty member "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pratiphal
+  - text: select type of vehicle
+    buttons:
+    - title: Four wheeler
+      payload: /conveyance_car_rem_ent
+    - title: Two wheelers
+      payload: /conveyance_bike_rem_ent
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance reimbursement
+  - text: "% of basic pay as per the scheme"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: location based compensatory allowance
+  - text: "No separate entitlement. Deduction from Half Pay leave account"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: commuted leave
+  - text: "A. 3 months - other than grounds of illness \n
+           B. 6 months - diseases other than TB, Cancer, Leprosy \n
+           C. 18months - treatment for TB, Cancer, Leprosy"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: extra ordinary leave
+  - text: "A. 3 months - other than grounds of illness \n
+           B. 6 months - diseases other than TB, Cancer, Leprosy \n
+           C. 18months - treatment for TB, Cancer, Leprosy"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: eol      
+  - text: 21 days, 30 days in exceptional cases
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarantine leave
+  - text: "1 day's compensatory off for working on weekly off/rest day/extra day/shift \n
+           2 days' compensatory off for working on weekly off/rest day which is also a National Holiday"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: compensatory off
+  - text: "CMD - 150% of basic pay \n
+           Directors - 125% of basic pay \n
+           E9 - 90% of basic pay \n
+           E8 - 80% of basic pay \n
+           E7 - 70% of basic pay \n
+           E6 - 60% of basic pay \n
+           E4 & E5  - 50% of basic pay \n
+           E3 and below - 40% of basic pay \n
+           Supervisors and Workmen - 38% of basic pay"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: prp
+  - text: "Employees at CC/ RHQ  - Rs. 36000/ year \n
+           Employees posted in Site/ Project with 6 day working - Rs. 43000/ year \n
+           Employees posted in Site/ Projectwith 6 day working in Hardship Station Category-I & Category-II  - Rs. 50000/ year"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: uniform 
+  - text: Casual Leave cannot be clubbed with any other leave except OH While combining leave, OH can be taken as prefix/ suffix only
+    condition:
+    - type: slot
+      name: subject_cat
+      value: combination of leave
+  - text: Not exceeding 30 days in a year
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special casual leave
+  - text: " 1. 26 weeks -  for legally adopting a child upto three months or a commissioning mother \n
+            2. 12 weeks - for legally adopting a child above three months upto one year "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special maternity leave
+  - text: " 1. 26 leaves/ year; No accumulation \n 
+            2. 30 leaves/ year for NER (except Guwahati & Shillong)& Cagtegory-II locations "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special additional leave
+  - text: As per recommendation of the committee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special disability leave
+  - text: Lump-sum cash Award and Admission fee as per Rates specified
+    condition:
+    - type: slot
+      name: subject_cat
+      value: higher study    
+  - text: " 1. No employment provided by the Company to any dependant on compassionate grounds
+            2. Repayment of loans/advances and other dues
+            3. After vacation of Company’s Quarters / Company Lease accommodation "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: economic rehabilitation
+  - text: " 1. Consultation fees, subject to ceilings as per policy \n
+            2. Cost of Medicine \n
+            3. Pathalogical test charges \n
+            4. Injection Administration fees "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical benefits
+  - text: As per discretion of Medical Relaxation Committee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical relaxation 
+  - text: "1. Monetary Assistance for education of children.
+           2. Assistance in skill development/ building earning potential of Spouse"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: saksham
+  - text: select Leave Encashment
+    buttons:
+    - title: Leave encashment
+      payload: /lev_enc_ent
+    - title: Special leave encashment
+      payload: /spe_lev_enc_ent
+    condition:
+    - type: slot
+      name: subject_cat
+      value: leave encashment
+
+
+      
+  - text: Entitlement for the {subject} is not availabe. Please contact to HR.
+  
+  
+  
+  
+  
+
+  utter_ask_level:
+  - text: what is your working level?
+    buttons:
+    - title: Board Level Executives
+      payload: /choose_level{{"level":"board level"}}
+    - title: Executives below Board Level
+      payload: /choose_level{{"level":"executives"}}
+    - title: Supervisor
+      payload: /choose_level{{"level":"supervisors"}}
+    - title: Workmen
+      payload: /choose_level{{"level":"workmen"}}
+    - title: Trainess
+      payload: /choose_level{{"level":"trainees"}}
+  
+  utter_eligibility:
+  - text: Extra-ordinary leave sanctioned under special circumstances without any pay and allowances to the following extent when all other leave is exhausted and the employee specifically applies for Extraordinary Leave.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: extra ordinary leave
+  - text: Extra-ordinary leave sanctioned under special circumstances without any pay and allowances to the following extent when all other leave is exhausted and the employee specifically applies for Extraordinary Leave.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: eol      
+  - text: Infectious diseases like Cholera, Smallpox, Plague, Diphtheria, Typhus, Cerebrospinal Meningitis, Covid-19
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarantine leave
+  - text: For Executives on shift duty, Supervisors and workmen, for working on his weekly off/rest day/ extra day on holiday/extra shift
+    condition:
+    - type: slot
+      name: subject_cat
+      value: compensatory off
+  - text: "Employees who are disabled and become temporarily unfit to work on account of injuries arising out of and in the course of employment 
+           Will not be admissible if claiming/ applying for GPAI"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special disability leave                      
+  - text: "Cut off date - 31st Janyary/ 31st July \n
+           Promotion date - 01st January/ 1st July \n
+           Last year Appraisal rating should not be -Not Satisfactory"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: workmen
+  - text: "Cut off date - 31st July/ 30th April \n
+           Promotion date - 01st January/ 1st April \n
+           Last year Appraisal rating should not be -Not Satisfactory"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: supervisors
+  - text: "Cut off date - 31st July/ 30th April \n
+           Promotion date - 01st January/ 1st April \n
+           Last year Appraisal rating should not be -Not Satisfactory"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: executives
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: board level
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: trainees
+  - text: "Employees promoted from Supervisor to Executive shall generally be transferred. \n
+           In case of transfer on promotion, etc., the employee should join the new place within 30 days of order, failing which the promotion etc., shall be forfeited" 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: transfer
+  - text: Employee possessing requisite recognized qualification and no. of years of experience as per the notification.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: acgs
+  - text: For those employees performing Night shifts as part of regular shift rota.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: night shift
+  - text: "CMD, Directors, all Executives who are on regular rolls of the Corporation excluding Trainees and Apprentice.\n
+           Scheme shall also be applicable to regular employees in workman and supervisor levels."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: prp
+  - text: "Employees working in TL Maintenance works upto E7 level, \n
+           Distance of upto 100 Kms (one way) path way in plain terrain and \n
+           50 Kms (one way) path way in the hilly terrain"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: fmta
+  - text: Concerned employee should opt for canteen allowance under cafeteria approach
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sodexo
+  - text: Employees on regular rolls of the Company including lien holders and deputationists are eligible for muti-purpose advance.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: multi-purpose advance
+  - text: All regular employees except those under suspension/ against whom disciplinary/ Vigilance case is pending/ contemplated
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company sponsored study
+  - text: Select the study area for children education advance
+    buttons:
+    - title: In India
+      payload: /study_india_ele
+    - title: In Abroad
+      payload: /study_abroad_ele
+    condition:
+    - type: slot
+      name: subject_cat
+      value: children education advance
+  - text: "1. 3 years of service as Regular employee & not due to retire within 5 years of the date of return to duty after the completion of the course;  \n 
+      2. Should not be under suspension & no disciplinary/ vigilance case are pending against the employee;" 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: study leave
+  - text: All regular employees
+    condition:
+    - type: slot
+      name: subject_cat
+      value: contributory pension plan
+  - text: "1. Woman employees on the regular rolls of the Corporation excluding trainees are eligible for child care leave.  \n 2. Shall not be admissible if the child is 18 years or more \  \n 3. In case of disability in a child (Benchmark Disability as per RPWD Act 2016), CCL may be availed irrespective of age of child"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: ccl
+  - text: "1. Employees on the regular rolls of the Corporation excluding trainees are eligible for child care leave.  \n
+     2. Shall not be admissible if the child is 18 years or more  \n 
+     3. In case of disability in a child (Benchmark Disability as per RPWD Act 2016),, CCL may be availed irrespective og age of child"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: child care leave
+  - text: "1. Employees in Executive grade with minimum 10 years of continuous service and should have minimum 5 years service left  \n
+        2. Will be allowed only once in career"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sabbatical leave
+  - text: "1. 1 year as Regular employee & subscribing to POWERGRID PF  \n
+     2. Eligible for repayment of loan to Financial Institution  \n
+     3. 4 years after sanction of earlier Advance & recovery of earlier advance  \n
+     4. Employees to retire within 3 years not eligible  \n
+     5. Employees under suspension not eligible"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance advance
+  - text: If any one or more of the Awards like Prime Minister's Shram Awards, Arjun Award for Sportsmen , Bharat Ratna, Ashok Chakra etc.  
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national award
+  - text: "Gratuity shall be payable to an employee on the termination of his employment after he has rendered continuous service for not less than five years-  \n 
+      a) on his superannuation; or  \n 
+      b) on his resignation, retirement or termination of his services; or  \n 
+      c) on his death or disablement due to accident or disease.  \n 
+      Completion of continuous service of five years not  necessary in case of death or disablement."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: gratuity fund
+  - text: All employees
+    condition:
+    - type: slot
+      name: subject_cat
+      value: provident fund
+  - text: "1. One year as Regular employee  \n
+      2. Children should have passed the requisite qualification"
+    buttons:
+    - title: Check qulaifications
+      payload: /merit_qual
+    condition:
+    - type: slot
+      name: subject_cat
+      value: merit award
+  - text: All employees including trainees, unless opted out
+    condition:
+    - type: slot
+      name: subject_cat
+      value: death relief scheme
+  - text: All employees including trainees, unless opted out
+    condition:
+    - type: slot
+      name: subject_cat
+      value: drs
+  - text: Applicable to journeys performed by employees to places beyond radius of 30 kms from the Headquarters or outside municipal limits of the Headquarters, whichever is more.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: tour and travel
+  - text: Sick Leave will be admissible to the Trainees/Apprentices at the rate of 10 days per year on full pay
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+  - text: Women employees who has actually worked for at least 80 days for the 12 months preceding date of  expected delivery
+    condition:
+    - type: slot
+      name: subject_cat
+      value: maternity leave
+  - text: All employees who, have rendered not less than three years regular service shall be eligible
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hba
+  - text: All employees who, have rendered not less than three years regular service shall be eligible
+    condition:
+    - type: slot
+      name: subject_cat
+      value: house building advance
+  - text: "1. One laptop computer (including printers and other peripherals) shall be provided to employees in Executive and Supervisory category.  \n
+      2. The life span of the laptop computer (printer & other peripherals) shall be 5 years period from the date of its claim.  At the end of 5 years, employees have to compulsory buy-back the laptop computer at residual value of 2% and thereafter shall be eligible for new laptop computer."   
+    condition:
+    - type: slot
+      name: subject_cat
+      value: laptop
+  - text: All regular employees (excluding trainees) are eligible for mobile reimbursement.      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+  - text: Payable to employees in the non-executive category to compensate for work performed beyond normal working hours.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: overtime allowance
+  - text: Employees posted in Hardship Category I/  Category II/ Category III/ Category IV locations
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hardship location
+  - text: " 1. Bachelors will be allotted shared accommodation. \n
+        2. Employee who draws HRA for retention of his family at other than the place of posting will be allotted shared bachelor accommodation only. \n
+        3. Apprentice  may be allotted shared/ bachelor accommodation "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarter allotment
+  - text: " 1. If both husband and wife are employed in the Company and residing in the same rented unfurnished accommodation, both husband and wife may draw House Rent Allowance individually. \n             If spouse of an employee is working in another organisation and is claiming HRA, the employee can draw HRA
+            2. If employee is sharing accommodation with their parents/children/ another employee of the Company who is claiming HRA for that accommodation theyshall be entitled to claim HRA. \n
+            3. If employee is sharing Government accommodation allotted to a Central Government employee, not related to him, he shall be entitled to claim HRA. \n 
+            4. If employee is residing in Company’s/Government accommodation on payment of penal/market rent, he/she shall be entitled to claim HRA. \n 
+            5. If employee is residing as a paying guest in a hostel or a boarding house on payment of rent, he/she shall be entitled to claim HRA. \n
+            6. Employee who is residing in an accommodation owned by them or any of their family members or HUF in which he/she is a co-partner, shall also be entitled to claim HRA "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hra
+  - text: " All Executives, including those on deputation in POWERGRID In case of self-lease, lease rent (after adjusting HRR) shall not exceed net applicable HRA "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company leased accommodation
+  - text: " Executives who have completed 05 years in regular service of the Company (excluding training period)
+            Grounds for providing the benefit \n
+            1. Lack of adequate infrastructure facilities in place of posting. \n
+            2. Medical condition of dependents. \n
+            3. Spouse working in a different organization at another location. \n
+            4. Education of children. \n
+            5. Marriage of children. "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: retention of family
+  - text: Employees on official tour, New Recruits or Joinees,  Employee transfer from one Sub-station to another, employees of Central Govt./State Govt./Public Sector Undertakings, Family members accompanying the employees on tour ( T&C Apply).
+    condition:
+    - type: slot
+      name: subject_cat
+      value: guest house
+  - text:  " Eligibility for each program shall be subject to meeting the specific conditions mentioned in the respective program. \n
+            Executive Directors, Chief General Managers (In-charge) shall be covered under Team reward/ recognition category including awards for Learning \n 
+            and Development Employees posted in the award receiving  team/substation/region (including temporary posting) for at least 8 months excluding  \n
+            any period of leave shall also  be eligible. "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pratiphal
+  - text: " 1. Ownership and maintenance of conveyance by the employee is required on functional basis \n
+           2. Employee is required to perform frequent local journeys \n
+           3. Employee is required to attend to official business beyond normal duty hours \n
+           4. Reimbursement will be allowed for one vehicle only 
+           5. Vehicle should be owned and registered oin the name of the employee \n
+           6.  The employee should have a valid driving licence (including learner's driving licence) "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance reimbursement
+  - text: Employees posted in consultancy assignment for implementation of 220 kV Alusteng (Srinagar) - Leh Transmission System
+    condition:
+    - type: slot
+      name: subject_cat
+      value: srinagar-leh transmission system
+  - text: On Initial Appointment/ Deputation/ Promotion/ for Departmental Trainees
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pay fixation
+  - text: " 1. Blood donation - on the day of blood donation \n
+            2. Sterilization operation - 6 days for male; 14 days for female \n
+            3. PwD - 4 days in a year \n
+            4. Others - please refer HR policy"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special casual leave
+  - text: Employees posted at locations other than RHQ & CC
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special additional leave
+  - text: Employees who are disabled and become temporarily unfit to work on account of injuries arising out of and in the course of employment Will not be admissible if claiming/ applying for GPAI.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special disability leave
+  - text: Employee possessing requisite recognized qualification and no. of years of experience as per the notification
+    condition:
+    - type: slot
+      name: subject_cat
+      value: acgs  
+  - text: " 1. Employee must be on rolls of company on final exam commencement date \n
+            2. Employee must obtain prior permission of the Company before registering for the course \n
+            3. Qualification should be higher/additional to the qualification(s) already possessed and significantly relevant to functional area of responsibility"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: higher study
+  - text: On deposit of PF balance, Gratuity amounts and Group Insurance (EDLI only) amount 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: economic rehabilitation 
+  - text: All employees,On superannuation from POWERGRID on attaining the age of retirement, subject to a minimum qualifying period of 15 years of continuous service
+    condition:
+    - type: slot
+      name: subject_cat
+      value: post retirement
+  - text: All employees
+    condition:
+    - type: slot
+      name: subject_cat
+      value: welfare facilities
+  - text: Employees opted for transfer of corpus to NPS/ joining after implementation of NPS
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national pension
+  - text: Employees opted for transfer of corpus to NPS/ joining after implementation of NPS
+    condition:
+    - type: slot
+      name: subject_cat
+      value: nps      
+  - text: select Group Insurance
+    buttons:
+    - title:  Conveyance
+      payload: /gi_con_eli
+    - title: HBA
+      payload: /gi_hba_eli
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group insurance
+  - text: " 1. An employee having experience of 05 or more years in POWERGRID, is eligible for registration as Mentor.\n 
+            2. The level of mentor should be atleast 02 level higher than mentee and should not have any direct reporting relationship between the two. \n
+            3. In case of new recruits, mentor will be assigned by the management. \n
+            4. Mentor can have maximum of 05 mentee at any point of time, however, mentee can have only one mentor. "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mentoring
+  - text: " 1. Any employee irreespective of their length of service/experience in POWERGRID, is eligible for registration as Coach. \n 
+            2. The request of registration of Coach will be reviewed by duly constituted committee based on past record of professional excellence, leadership quality, professional ethics, integrity etc."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: coaching
+  - text: select Group Personal Accident Insurance
+    buttons:
+    - title: GPAI
+      payload: /gpai_eli
+    - title: GPAI - Hotline
+      payload: /gpai_hot_eli
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group personal accident insurance
+  - text: select Rajbhasha Schemes 
+    buttons:
+    - title: Rajbhasha schemes - Acquiring proficiency in Hindi
+      payload: /rb_aph_eli
+    - title: Rajbhasha Schemes - Noting Drafting in Hindi
+      payload: /rb_ndh_eli
+    - title: Rajbhasha Schemes - Parangat Training
+      payload: /rb_pt_eli     
+    condition:
+    - type: slot
+      name: subject_cat
+      value: rajbhasha       
+  - text: Eligibility for the {subject} is not available. Please contact HR.
+ 
+  utter_duration:
+  - text: Admissible for maximum period of 3 years and only once during the entire service of the employee, subject to exigencies of work.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: study leave
+  - text: "1. The women employees may be granted Child Leave Care (CCL) for a maximum period of two years i.e. 730 days with pay during their entire service period for taking care of upto two eldest surviving children (children will also include legally adopted children) whether for rearing or to look after any of the needs like education, sickness etc.  \n 
+      2. CCL will have to be availed in a spell of not less than one month and maximum thrice in a year/  six times a year for single parents"  
+    condition:
+    - type: slot
+      name: subject_cat
+      value: ccl
+  - text: "1. The women employees may be granted Child Leave Care (CCL) for a maximum period of two years i.e. 730 days with pay during their entire service period for taking care of upto two eldest surviving children (children will also include legally adopted children) whether for rearing or to look after any of the needs like education, sickness etc.  \n 
+      2. CCL will have to be availed in a spell of not less than one month and maximum thrice in a year/  six times a year for single parents"  
+    condition:
+    - type: slot
+      name: subject_cat
+      value: child care leave      
+  - text: Sabbatical will be allowed once in-service career for a minimum period of 01 Year and maximum upto 03 years.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sabbatical leave
+  - text: two years
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+  - text: Minimum 5 years continuous service; payable on termination of employment
+    condition:
+    - type: slot
+      name: subject_cat
+      value: gratuity fund
+  - text: " Maximum Repayment Period  \n
+      1. Four wheeler - 12 years  \n
+      2. Two wheeler - 6 years "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance advance
+  - text: "Tenure of 3 (three) years only Employee who is a resident of that place/ surrounding and willing to work for more than 3 years will continue to
+          be posted there Tenure will be inclusive of absence Max 90 days EL,60 days HPL/ 120 days CML, and other leaves For more leave employee should
+          agree to extension of tenure by equivalent no. of days"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hardship location
+  - text: Tenure of 02 years, excluding availed Earned Leave & Half Pay Leave Choice posting for a period of 3 years
+    condition:
+    - type: slot
+      name: subject_cat
+      value: srinagar-leh transmission system
+  - text: Till expiry of prescribed period/ Cancellation by Management/ Surrender by Employee/ Employee Ceasing to occupy the quarters
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarter allotment
+  - text: 05 years at the same or different locations and at one go or in separate blocks with or without any gaps in between.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: retention of family
+  - text: Normally for maximum 15 days
+    condition:
+    - type: slot
+      name: subject_cat
+      value: guest house
+  - text: " 1. For fresh applicants, Conveyance reimbursement shall be sanctioned from the 1st of the succeeding month \n
+           2. For transfer cases, Conveyance reimbursement shall continue from the date of joining new place of posting"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance reimbursement
+  - text: Can be availed till 31st January of next calender year 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: compensatory off
+  - text: "W3 to W4 & above - 4 years \n
+           W1 to W2 & W2 to W3 - 6 years \n
+           W0 to W1 - 10 years \n
+           Special dispensation (with VIII standard qualification) - 5 years \n
+           Special dispensation (less than VIII standard) - 6 years"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: workmen
+  - text: "S1 to S2; S2 to S3; S3 to S4 - 3 years \n
+           S4 to SG - 4 years \n
+           S4 to E2 - 1 year (subject to possessing requisite qualification, written test and interview)"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: supervisors
+  - text: "E3, E4, E5 - 3 years \n
+           E2, E6 - 4 years"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: executives
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: board level
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+    - type: slot
+      name: level
+      value: trainees
+  - text: "Can be taken for half day also Total absence including intervening Sundays and holidays should not exceed 10 days at a stretch"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+  - text: Amount based on period of more than 06 months in a calendar year
+    condition:
+    - type: slot
+      name: subject_cat
+      value: uniform 
+  - text: Mimimum of 15 days in a month
+    condition:
+    - type: slot
+      name: subject_cat
+      value: fmta
+  - text: "General period of posting shall be 3 to 6 years \n
+            Posting at Category I Difficult locations shall be max. for 3 years \n
+            Posting at Category II Difficult locations shall be max. for 2 years"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: transfer    
+  - text: Incentive shall be till the service of the employee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national award  
+  - text: Till the  notional date of superannuation/ permanent withdrawal of the deposited amount
+    condition:
+    - type: slot
+      name: subject_cat
+      value: economic rehabilitation
+  - text: Medical claim to be submitted within 3 months of date of completion of treatment
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical benefits
+  - text: select working level
+    buttons:
+    - title: E8 & E9
+      payload: /app_e8_e9_dur
+    - title: E2 to E7
+      payload: /app_e2_e7_dur
+    - title: Supervisors
+      payload: /app_sup_dur
+    - title: Workmen
+      payload: /app_wor_dur       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: appraisal
+  - text: select Leave Encashment
+    buttons:
+    - title: leave encashment
+      payload: /lev_enc_dur
+    condition:
+    - type: slot
+      name: subject_cat
+      value: leave encashment
+  - text: Duration/ Period for the subject is not available. Please reframe your query or Contact to HR. 
+      
+  utter_criteria:
+  - text: The Guest House/Transit Camp accommodation will be allotted on prior intimation, subject to availability of accommodation.The allotment of accommodation will be made on ‘First Come First Served’ basis.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: guest house
+  utter_deduction:
+  - text: " 1. X Class - 7.5% of Basic \n
+            2. Y Class - 5% of Basic   \n
+            3. Z Class - 2.5% of Basic"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company leased accommodation
+  - text: 3 % of salary
+    condition:
+    - type: slot
+      name: subject_cat
+      value: contributory pension plan
+  - text: 12% of salary
+    condition:
+    - type: slot
+      name: subject_cat
+      value: provident fund
+  - text: Rs. 450/-
+    condition:
+    - type: slot
+      name: subject_cat
+      value: death relief scheme
+  - text: Rs. 450/-
+    condition:
+    - type: slot
+      name: subject_cat
+      value: drs
+  - text: Cancellation charges @ 10% of booking amount, for cancellation of Personal booking within 15 days
+    condition:
+    - type: slot
+      name: subject_cat
+      value: guest house
+  - text: Admissible on proportionate basis where an employee is absent from the Headquarters for more than 15 days
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance reimbursement
+  - text: The amount towards Meal voucher shall be deducted from the salary of the employee
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sodexo 
+  - text: Shall not be eligibel for PRP, Location based Compensatory Allowance, Uniform Reimbursement
+    condition:
+    - type: slot
+      name: subject_cat
+      value: departmental trainees
+  - text: select foreign posting
+    buttons:
+    - title: saarc
+      payload: /fp_saarc_ded
+    - title: kenya
+      payload: /fp_kenya_ded
+    - title:  ethiopia
+      payload: /fp_ethiopia_ded
+    - title: uganda 
+      payload: /fp_uganda_ded
+    - title: afghanistan, dubai & nigeria 
+      payload: /fp_afg_dub_nig_ded
+    - title: fiji 
+      payload: /fp_fiji_ded
+    - title: maldova
+      payload: /fp_maldova_ded  
+    condition:
+    - type: slot
+      name: subject_cat
+      value: foreign posting
+  - text: Half pay leave account will be deducted twice
+    condition:
+    - type: slot
+      name: subject_cat
+      value: commuted leave
+  - text: Leave sanctioned shall be without pay and allowances
+    condition:
+    - type: slot
+      name: subject_cat
+      value: extra ordinary leave
+  - text: Leave sanctioned shall be without pay and allowances
+    condition:
+    - type: slot
+      name: subject_cat
+      value: eol      
+  - text: Pay will not be deducted
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarantine leave
+  - text: half basic +DA on such half basic
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: board level
+  - text: half basic +DA on such half basic
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: executives 
+  - text: half basic +DA on such half basic
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: supervisors
+  - text: half basic +DA on such half basic
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: workmen
+  - text: Not Applicable
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+    - type: slot
+      name: level
+      value: trainees
+  - text: Intervening Sundays/ Holidays will not be debited to CL account
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave   
+  - text: Not available
+  - text: " One Time Contribution:
+            1. Executives - Rs. 30000/- \n
+            2. Supervisors - Rs. 25000/- \n
+            3. Workmen - Rs. 21000/- "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: post retirement
+  - text: Reimbursement shall be restricted to Holy family rates, if treatment is availed in non-empanelled hospitals
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical benefits
+  - text: select Group Insurance
+    buttons:
+    - title:  Conveyance
+      payload: /gi_con_ded
+    - title: HBA
+      payload: /gi_hba_ded
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group insurance
+  - text: Income tax and over payments
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: board level
+  - text: Income tax and over payments
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: executive below board level      
+  - text: Income tax and over payments
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: supervisor   
+  - text: Income tax and over payments
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+    - type: slot
+      name: level
+      value: workmen      
+      
+  utter_rates:
+  - text: "Motor car - 7.50%  \n
+      Electric car - 4.5%  \n
+      Two wheeler - 6.5%"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance advance
+  - text: Simple interest @ 7.5% from the date of payment
+    condition:
+    - type: slot
+      name: subject_cat
+      value: children education advance
+  - text: Interest free
+    condition:
+    - type: slot
+      name: subject_cat
+      value: multi-purpose advance
+  - text: " Upto Rs. 10,00,000 - 7.5%  \n 
+     Rs. 10,00,001- to Rs. 40,00,000 - 8.5%  \n 
+     Rs. 40,00,001- to Rs. 60,00,000 - 9.5% "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hba
+  - text: " Upto Rs. 10,00,000 - 7.5%  \n 
+     Rs. 10,00,001- to Rs. 40,00,000 - 8.5%  \n 
+     Rs. 40,00,001- to Rs. 60,00,000 - 9.5% "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: house building advance
+  - text: Rate of OT per hour = (Emoluments * /208)
+    condition:
+    - type: slot
+      name: subject_cat
+      value: overtime allowance
+  - text: Licence Fees and Electricity Recovery as per the rates specified in the policy
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarter allotment
+  - text: " 1. X Class - 7.5% of Basic \n
+            2. Y Class - 5% of Basic   \n
+            3. Z Class - 2.5% of Basic"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company leased accommodation
+  - text: " For POWERGRID employees 
+            X Class - Rs. 300
+            Y Class - Rs. 200
+            Z Class - Rs. 100 "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: guest house  
+  - text: " 1. North-East States and Ladakh  - 10% \n
+            2. Island Territories of A&N Islands and Lakshwadeep -10% to 20% \n
+            3. Difficult and Far flung areas - 3% to 8% "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: location based compensatory allowance
+  - text: "E4 to E7 - 6250/- \n
+            upto E3 - 5000/- \n
+            SSG - 4050/- \n
+            S1 to S4 - 3750/- \n
+            WSG - 4050/- \n
+            W7 to W11 - 3750/- \n 
+            W3 to W6 - 3150/- \n
+            W0 to W2 - 2625/-"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: fmta
+  - text: Stipend - Rs. 12000/-
+    condition:
+    - type: slot
+      name: subject_cat
+      value: industrial training
+  - text: " Stipend - 
+            1. ITI - Rs. 11000/- \n
+            2. Diploma - Rs. 12000/- \n
+            3. Graduate/ Exeuctive - Rs. 15000/- "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engagement of apprentices
+      
+  - text: Rates for the subject is not available. Please contact HR.
+
+  utter_benefit:
+  - text: "The employees who are awarded any of the specified National/All India Awards shall be granted one special increment from the date the Award is actually conferred.  \n 
+     Employees who are conferred Prime Minister's Shram Award shall also be eligible for following benefits 
+     1. Service Weightage  \n 
+     2. Reimbursement of full tutuion fees incurred towards education of children  \n
+     3. One set of clothes for spouse"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: merit award
+  - text: "1 Medical- Visiting Medical Consultant, Empanelment of Hospitals, Provision for First-aid room & First aid box etc.  \n 
+      2 Education- Nursery School in Sub-station Township, Reservation of Seats in Reputed Schools for Wards of Employees  \n 
+      3 Transport Facilities for schooling, Shopping, Medical emergency.  \n 
+      4 Expenditure for National Festivals.  \n 
+      5 Sports, Games, Recreation & Cultural Activities-POWERGRID Sports Promotion Council (PSPC), POWERGRID Cultural & Social Council (PCSC),  \n 
+      6 POWERGRID Employees Welfare Association (PEWA)  \n 
+      7 Community Development Activities"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: welfare facilities
+  - text: The Insurance Policy will provide coverage by way of payment of compensation to the extent specified in this Scheme to the covered employee round the clock, whether he is on Company's duty or not, on any location in India or abroad, against a bodily injury resulting solely and directly from accidents caused by violent, external and visible means which shall solely, and independent of any cause, result in death or disablement
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group personal accident insurance
+  - text: On the separation of an employee from the service of the Company on account of Death/ Permanent Total Disablement, the beneficiary would be entitled to monthly payment equivalent to the employee’s 50% of one month (Basic Pay + DA + Special Pay/ Stagnation increment) last drawn provided the beneficiary deposits with the Management the amounts as indicated in para  below in one lumpsum. Such monthly payment would continue till the normal notional date on which the employee concerned would have attained the age of superannuation had the employee continued in the service of the Company.The interest accrued on balance of PF account (excluding VPF) from the date of cessation of service of the employee till the date of withdrawal shall not be considered for availing benefits under the Scheme. Deposit of amount- The beneficiary shall deposit PF balance, Gratuity amounts and Group Insurance (EDLI only) amount within a maximum period of 30 days of settlement of all dues relating to PF and Gratuity. The beneficiary will have no option to retain any part of the amounts paid by the company towards settlement of PF, Gratuity and Group Insurance (EDLI only) except the VPF deposited by the employee in the Provident Fund Scheme.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: family economic rehabilitation
+  - text: "Upto E3 - 900.00/ shift  \n
+          E4 to E5 -1200.00/ shift  \n
+          E6 to E8 (upto GM level) - 1500.00/ shift  \n
+          S1 to S4 - 500.00/ shift  \n
+          SG - 600.00/ shift  \n
+          W0 to W2 - 300.00/ shift  \n
+          W3 to W6 - 400.00/ shift  \n
+          W7 to W11 - 500.00/ shift  \n
+          SG - 600.00/ shift"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: night shift
+  - text: "Retention of Company Leased Accommodation/HRA \n
+            Transfer Benefits for the Employee Choice of Next Posting \n
+            Additional mark in Moderation by Corporate Promotion Committee \n
+            Location based Compensatory Allowance
+            Special Additional Leave \n
+            Free Lodging/Bachelor Accommodation to the Employee Posted at Wagoora & Doda \n
+            Air Travel between Srinagar and Jammu"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hardship location
+  - text: "Joining Time & Journey Period to be considered as Special Journey Leave \n
+            Air travel facility between Jammu-Srinagar; Srinagar-Leh; Jammu – Leh or Delhi – Leh and return \n
+            Special hardship location Leave of 10 days \n
+            Reimbursement of travelling expenses (only to & fro fares) from place of duty to hometown/place of retention of family twice during the year \n
+            Snow climate accessories like winter jacket, thermal wear, snow shoes, winter caps, gloves, socks, goggles etc. \n
+            HRA/ Company leased accommodation/ Company Quarters for retention of family anywhere in India \n
+            Joining time, transfer pay advance, journey fare, conveyance charges, daily allowance and 1/3 of baggage allowance and Settling-in Allowance \n
+            employee who suffers  permanent disablement/ death due to terrorist activities or death of an employee  due to accident/climatic conditions, \n
+            then employee/ his nominee will be entitled to extra-gratia payment equivalent to 100 times of maximum of pay scale & DA \n
+            Additional mark in Moderation by Corporate Promotion Committee \n
+            Furnished bachelor accommodation with lodging and boarding facility \n
+            Periodic medical health check-up"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: srinagar-leh transmission system
+  - text: " 1. UTTAM Awards :- Appreciation letters and gift coupons/memento. \n
+            2. SRIJAN - Certificate of Excellence + Cash Award per individual, Training program, Blazer with Badge of Honor. \n
+            3. SANRAKSHA - Certificate of Excellence + Gift Coupon/memento of Rs. 7,500 per individual member, Training program, Blazer with Badge of Honor. \n
+            4. SITARE - SITARE Trophy,  celebratory dinner at the location for all employees and their families, Framed Certificate of Excellence during Appreciation Week. \n
+            5. RATNA - RATNA trophy, Framed Certificate of Excellence to concerned Regional Head during Appreciation Week. \n
+            6. VISHAARAD - Certificate of Excellence + Gift Coupon/memento of value Rs. 12,000/- for 1st place, Rs. 10,000/- for 2nd place, Rs. 8,000/- for the 3rd place. \n
+            7. GYAN PRAVARTAK - Certificate of Excellence."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pratiphal
+  - text: " 1. Sum total of Pay and Dearness Allowance will be protected \n
+        2. Annual increment will be provided \n
+        3. Perks as per Cafeteria, Conveyance Reimbursement, Digital Services Reimbursment, Retirement Benefit, Advances, HRA/ Company Accommodation, Medical Facilities shall be provided as per post prior to selection as Trainee \n
+        4. Shall not be eligibel for PRP, Location based Compensatory Allowance, Uniform Reimbursement \n
+        5. Leave and TA/DA shall be as applicable to trainees"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: departmental trainees      
+  - text: select foreign posting
+    buttons:
+    - title: saarc
+      payload: /fp_saarc_ben
+    - title: kenya
+      payload: /fp_kenya_ben
+    - title:  ethiopia
+      payload: /fp_ethiopia_ben
+    - title: uganda 
+      payload: /fp_uganda_ben
+    - title: afghanistan, dubai & nigeria 
+      payload: /fp_afg_dub_nig_ben
+    - title: fiji 
+      payload: /fp_fiji_ben
+    - title: maldova
+      payload: /fp_maldova_ben   
+    condition:
+    - type: slot
+      name: subject_cat
+      value: foreign posting
+  - text: Max. Rs. 2500/ month
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sodexo
+  - text: "The employees who are awarded any of the specified National/All India Awards shall be granted one special increment from the date the Award is actually conferred. \n 
+           Employees who are conferred Prime Minister's Shram Award shall also be eligible for following benefits \n 
+           1. Service Weightage \n 
+           2. Reimbursement of full tutuion fees incurred towards education of children \n 
+           3. One set of clothes for spouse"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: merit award
+  - text: Monthly payment equivalent to the employee’s 50% of one month (Basic Pay + DA + Special Pay/ Stagnation increment) last drawn 
+    condition:
+    - type: slot
+      name: subject_cat
+      value: economic rehabilitation 
+  - text: " 1. Consolidated fee of Rs. 44200/- per month \n
+            2. TA/DA and boarding/ lodging charges \n
+            3. One day paid leave for every 20 days "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engaging retired supervisors
+  - text: " Professional Fees-
+            E6 & below - Rs. 40000/- \n
+            E7 - Rs. 50000/- \n
+            E8 (upto Sr. GM) - Rs. 60000/- \n
+            CGM - Rs. 70000/- \n
+            E9 - Rs. 80000/- \n 
+            HRA @ 15% \n 
+            Monthly Mobile Reimbursement - Rs. 2500/- \n 
+            Monthly Conveyance \n 
+            TA/DA \n
+            One day paid leave for every 20 days "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engaging retired executives
+  - text: "1. Spouse of deceased employee eligible for medical facilities for life. \n
+           2. Dependent parents and dependent children of  deceased employee shall continue to avail medical facility till  notional date of retirement"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: deceased employees
+  - text: " 1. Indoor Treatment at empanelled hospitals \n
+            2. Out-patient Treatment subject to annual ceiling of maximum of the pay scale of serving employee of equivalent status/rank \n
+            3. Entitlement of medical benefits for the retired/separated employees shall be the same as admissible to serving employees of equivalent status/rank "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: post retirement
+  - text: " 1. Visiting Medical Consultant \n
+            2. Empanelement of Hospitals \n
+            3. Transport Facility for Schooling/ Shopping/ For Medical emergency/ For Educational trips, picnic and other welfare purposes \n
+            4. Celebration of National Festivals \n
+            5. Sports, Games, Recreation & Cultural Activities - PEWA & Mahila Samithi \n
+            6. Other activities/ facilities as per policy "
+    condition:
+    - type: slot
+      name: subject_cat
+      value: welfare facilities
+  - text: " 1. From nursery to class 10 (13 years) - Rs. 25,000/- p.a. \n
+            2. Class 11 & 12 - Rs. 50,000/- p.a. \n
+            3. Graduation/professional courses (max. 4 years) -  Rs. 75,000/- p.a."
+    condition:
+    - type: slot
+      name: subject_cat
+      value: saksham
+  - text: As per provisions of NPS
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national pension
+  - text: As per provisions of NPS
+    condition:
+    - type: slot
+      name: subject_cat
+      value: nps      
+  - text: select Group Insurance
+    buttons:
+    - title: Ordinary
+      payload: /gi_ord_ben
+    - title: EDLI
+      payload: /gi_edli_ben
+    - title:  Conveyance
+      payload: /gi_con_ben
+    - title: HBA
+      payload: /gi_hba_ben
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group insurance
+  - text: select Group Personal Accident Insurance
+    buttons:
+    - title: GPAI
+      payload: /gpai_ben
+    - title: GPAI - Hotline
+      payload: /gpai_hot_ben
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group personal accident insurance
+  - text: select Rajbhasha Schemes 
+    buttons:
+    - title: Rajbhasha schemes - Acquiring proficiency in Hindi
+      payload: /rb_aph_ben
+    - title: Rajbhasha Schemes - Noting Drafting in Hindi
+      payload: /rb_ndh_ben
+    - title: Rajbhasha Schemes - Parangat Training
+      payload: /rb_pt_ben     
+    condition:
+    - type: slot
+      name: subject_cat
+      value: rajbhasha     
+  - text: Benefits of {subject} is not available. Please contact HR.
+
+  utter_objective:
+  - text: "Purpose of the Sabbatical Policy is to provide executives with the opportunity-  \n 
+      - To discharge various familial and social obligations (e.g. Health issues of parents, spouse, children etc.)  \n 
+      - To support spouse/children in their various personal/official pursuits  \n 
+      - To take up entrepreneurial or self-employment venture  \n 
+      - To take up self-development ventures.  \n 
+      - To explore different work-environments/situations by seeking employment elsewhere (full-time/part-time/contract)"
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sabbatical leave
+  - text: The Scheme has been formulated with a view to rendering assistance on an immediate basis towards funeral expenses of the employees who die for any reason, while in employment of the Company.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: funeral expenses
+  - text: Group Personal Accident Insurance Scheme (GPAIS) is a welfare measure formulated to insure employees against the consequences of personal accidents and to provide appropriate relief to the affected employees or nominees through an Insurance Cover.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group personal accident insurance
+  - text: POWERGRID Employees Family Economic Rehabilitation Scheme has been introduced for providing monetary benefit and support to employees/ family in the event of permanent total disablement/ death of the employee while in service.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: family economic rehabilitation
+  - text: Child Care Leave to facilitate women employees for taking care of two eldest surviving children/ legally adopted children upto the age of 18 years for rearing or to look after any of their needs like education, sickness etc.
+    condition:
+    - type: slot
+      name: subject_cat
+      value: ccl
+
+  utter_ask_grade_board_level:
+  - text: Select your grade
+    buttons:
+    - title: CMD
+      payload: /choose_grade{{"grade_board_level":"CMD"}}
+    - title: Functional Director
+      payload: /choose_grade{{"grade_board_level":"Functional Director"}}
+
+  utter_ask_grade_executives:
+  - text: Select your grade
+    buttons:
+    - title: E9
+      payload: /choose_grade{{"grade_executives":"E9"}}
+    - title: E8
+      payload: /choose_grade{{"grade_executives":"E8"}}
+    - title: E7
+      payload: /choose_grade{{"grade_executives":"E7"}}
+    - title: E6
+      payload: /choose_grade{{"grade_executives":"E6"}}
+    - title: E5
+      payload: /choose_grade{{"grade_executives":"E5"}}
+    - title: E4
+      payload: /choose_grade{{"grade_executives":"E4"}}
+    - title: E3
+      payload: /choose_grade{{"grade_executives":"E3"}}
+    - title: E2
+      payload: /choose_grade{{"grade_executives":"E2"}}
+  utter_ask_grade_supervisors:
+  - text: Select your grade
+    buttons:
+    - title: SSG
+      payload: /choose_grade{{"grade_supervisors":"SSG"}}
+    - title: S4
+      payload: /choose_grade{{"grade_supervisors":"S4"}}
+    - title: S3
+      payload: /choose_grade{{"grade_supervisors":"S3"}}
+    - title: S2
+      payload: /choose_grade{{"grade_supervisors":"S2"}}
+    - title: S1
+      payload: /choose_grade{{"grade_supervisors":"S1"}}
+  utter_ask_grade_workmen:
+  - text: Select your grade
+    buttons:
+    - title: WSG
+      payload: /choose_grade{{"grade_workmen":"WSG"}}
+    - title: W11
+      payload: /choose_grade{{"grade_workmen":"W11"}}
+    - title: W10
+      payload: /choose_grade{{"grade_workmen":"W10"}}
+    - title: W9
+      payload: /choose_grade{{"grade_workmen":"W9"}}
+    - title: W8
+      payload: /choose_grade{{"grade_workmen":"W8"}}
+    - title: W7
+      payload: /choose_grade{{"grade_workmen":"W7"}}
+    - title: W6
+      payload: /choose_grade{{"grade_workmen":"W6"}}
+    - title: W5
+      payload: /choose_grade{{"grade_workmen":"W5"}}
+    - title: W4
+      payload: /choose_grade{{"grade_workmen":"W4"}}
+    - title: W3
+      payload: /choose_grade{{"grade_workmen":"W3"}}
+    - title: W2
+      payload: /choose_grade{{"grade_workmen":"W2"}}
+    - title: W1
+      payload: /choose_grade{{"grade_workmen":"W1"}}
+    - title: W0
+      payload: /choose_grade{{"grade_workmen":"W0"}}
+  utter_ask_grade_trainees:
+  - text: Select your grade
+    buttons:
+    - title: Executive Trainee
+      payload: /choose_grade{{"grade_trainees":"Executive Trainee"}}
+    - title: Non-Excutive Trainee
+      payload: /choose_grade{{"grade_trainees":"Non-Executive Trainee"}}
+
+  utter_inform_subject:
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements      
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /compensation_common  
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pratiphal
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Duration
+      payload: /FAQ_duration     
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Eligibility for benefits
+      payload: /FAQ_eligibility 
+    - title: Previous Menu
+      payload: /compensation_common         
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hardship location
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Rates
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /compensation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: location based compensatory allowance
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Duration
+      payload: /FAQ_duration     
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: srinagar-leh transmission system  
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process    
+    - title: Deduction
+      payload: /FAQ_deduction    
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sodexo
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Duration
+      payload: /FAQ_duration      
+    - title: Deduction
+      payload: /FAQ_deduction    
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance reimbursement
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: perks
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: pay fixation           
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Rates
+      payload: /FAQ_rates    
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: overtime allowance
+  - text: What do you want to know about {subject_cat}?
+    buttons: 
+    - title: Deduction
+      payload: /FAQ_deduction    
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: departmental trainees
+  - text: What do you want to know about {subject_cat} procedure?
+    buttons: 
+    - title: Process
+      payload: /FAQ_process
+    - title: Previous Menu
+      payload: /emp_rel_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: grievance
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Duration
+      payload: /FAQ_duration      
+    - title: Deduction
+      payload: /FAQ_rates   
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /accommodation_common    
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarter allotment
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Entitlement
+      payload: /FAQ_entitlements  
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /accommodation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hra      
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Entitlement
+      payload: /FAQ_entitlements  
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Deduction
+      payload: /FAQ_deduction 
+    - title: Previous Menu
+      payload: /accommodation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company leased accommodation
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process  
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Previous Menu
+      payload: /accommodation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: retention of family
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process 
+    - title: Duration
+      payload: /FAQ_duration  
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Deduction
+      payload: /FAQ_deduction 
+    - title: Rates
+      payload: /FAQ_rates 
+    - title: Previous Menu
+      payload: /accommodation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: guest house  
+  - text: What do you want to know about {subject}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /compensation_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mobile
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Login Credentials
+      payload: /FAQ_user
+    - title: Previous Menu
+      payload: /employee_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: tna
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /employee_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: study leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: ccl
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: child care leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Rates
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /advances_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: hba
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Rates
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /advances_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: house building advance
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Rates
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /advances_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: children education advance
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /service_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sabbatical leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Repayment Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Interest Rate
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /advances_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: conveyance advance
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Previous Menu
+      payload: /compensation_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: tour and travel
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /compensation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: laptop
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /compensation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: telecommunication
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /social_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: provident fund
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: contributory pension plan
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: death relief scheme
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: drs
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: gratuity fund
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Interest Rate
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /advances_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: multi-purpose advance
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /compensation_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national award
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Benefit
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /compensation_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: merit award
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Deduction
+      payload: /FAQ_deduction 
+    - title: Previous Menu
+      payload: /service_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: casual leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: optional holiday
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: earned leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: half pay leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: sick leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: commuted leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Condition 
+      payload: /FAQ_eligibility
+    - title: Leave Period & Approving Authority
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: extra ordinary leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Condition
+      payload: /FAQ_eligibility
+    - title: Leave Period & Approving Authority
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: eol      
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: quarantine leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: compensatory off
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: maternity leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: paternity leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /employee_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: company sponsored study
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Duration/ Tenure
+      payload: /FAQ_duration
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: transfer
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /compensation_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value:  foreign posting     
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: acgs
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /compensation_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: night shift
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Previous Menu
+      payload: /service_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: promotion
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /compensation_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: prp
+  - text: What do you want to know about {subject_cat}? 
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /compensation_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: uniform
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: rates
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /compensation_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: fmta      
+  - text: Please select type of {subject_cat}?
+    buttons:
+    - title: Casual leave
+      payload: /inform_subject{{"subject":"casual leave"}}
+    - title: Sick leave
+      payload: /inform_subject{{"subject":"sick leave"}}
+    - title: Half-pay leave
+      payload: /inform_subject{{"subject":"half pay leave"}}
+    - title: Earned leave
+      payload: /inform_subject{{"subject":"earned leave"}}
+    - title: Optional holiday
+      payload: /inform_subject{{"subject":"optional holiday"}}
+    - title: Quarantine Leave
+      payload: /inform_subject{{"subject":"quarantine leave"}}
+    - title: Compensatory off
+      payload: /inform_subject{{"subject":"compensatory off"}}  
+    - title: Commuted Leave
+      payload: /inform_subject{{"subject":"commuted leave"}}
+    - title: Child Care Leave
+      payload: /inform_subject{{"subject":"child care leave"}}
+    - title: Sabbatical Leave
+      payload: /inform_subject{{"subject":"sabbatical leave"}}
+    - title: Maternity Leave
+      payload: /inform_subject{{"subject":"maternity leave"}}
+    - title: Paternity Leave
+      payload: /inform_subject{{"subject":"paternity leave"}}     
+    - title: Extra Ordinary Leave
+      payload: /inform_subject{{"subject":"extra ordinary leave"}}
+    - title: Combination of leave
+      payload: /inform_subject{{"subject":"combination of leave"}}
+    - title: Special Casual leave
+      payload: /inform_subject{{"subject":"special casual leave"}}
+    - title: Special Maternity Leave
+      payload: /inform_subject{{"subject":"special maternity leave"}}
+    - title: Special Additional Leave
+      payload: /inform_subject{{"subject":"special additional leave"}}     
+    - title: Over stayal of leave
+      payload: /inform_subject{{"subject":"over stayal of leave"}}
+    - title: Special Disability leave
+      payload: /inform_subject{{"subject":"special disability leave"}}     
+    - title: Setting off leave towards Notice Period
+      payload: /inform_subject{{"subject":"notice period"}}
+    - title: Leave Encashment
+      payload: /inform_subject{{"subject":"leave encashment"}}       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: leave
+  - text: Please select type of {subject_cat}?
+    buttons:
+    - title: Children education advance
+      payload: /inform_subject{{"subject":"children education advance"}}
+    - title: Multi-purpose advance
+      payload: /inform_subject{{"subject":"multi-purpose advance"}}
+    - title: Conveyance leave
+      payload: /inform_subject{{"subject":"conveyance advance"}}
+    - title: House building Advance
+      payload: /inform_subject{{"subject":"hba"}}
+    condition:
+    - type: slot
+      name: subject_cat
+      value: advances
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Previous Menu
+      payload: /service_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: leave encashment
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: combination of leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special casual leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special maternity leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special additional leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special additional leave      
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: over stayal of leave
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement
+      payload: /FAQ_entitlements
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: special disability leave     
+  - text: What do you want to know about Setting off leave towards {subject_cat}?
+    buttons:
+    - title: Process to Setting off leave
+      payload: /FAQ_process
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: notice period
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /service_common        
+    condition:
+    - type: slot
+      name: subject_cat
+      value: acgs     
+  - text: What do you want to know about Incentive for acquiring {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement       
+      payload: /FAQ_entitlements     
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /employee_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: higher study 
+  - text: What do you want to know about {subject_cat} Scheme?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement       
+      payload: /FAQ_entitlements     
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Benefit
+      payload: /FAQ_benefit
+    - title: Duration
+      payload: /FAQ_duration
+    - title: Previous Menu
+      payload: /social_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: economic rehabilitation
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Benefit       
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /others_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engaging retired supervisors
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Benefit       
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /others_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engaging retired executives
+  - text: What do you want to know about {subject_cat} to CA, CMA, CS?
+    buttons:
+    - title: Process for training 
+      payload: /FAQ_process
+    - title: Rate       
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /others_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: industrial training
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Rate       
+      payload: /FAQ_rates
+    - title: Previous Menu
+      payload: /others_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: engagement of apprentices
+  - text: What do you want to know about Medical benefits of dependent of {subject_cat}?
+    buttons:
+    - title: Process for Medical benefit
+      payload: /FAQ_process
+    - title: Medical benefit for dependents       
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /social_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: deceased employees
+  - text: What do you want to know about {subject_cat} Medical benefits?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility      
+    - title: Medical Benefit       
+      payload: /FAQ_benefit
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: post retirement
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Eligibility
+      payload: /FAQ_eligibility      
+    - title: Benefit       
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: welfare facilities
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement       
+      payload: /FAQ_entitlements       
+    - title: Duration       
+      payload: /FAQ_duration
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical benefits
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement       
+      payload: /FAQ_entitlements
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: medical relaxation
+  - text: What do you want to know about {subject_cat} Scheme?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Entitlement       
+      payload: /FAQ_entitlements
+    - title: Benefit       
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: saksham
+  - text: What do you want to know about {subject_cat} scheme?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Benefit       
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: national pension
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Benefit       
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: nps      
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility      
+    - title: Deduction
+      payload: /FAQ_deduction
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /social_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group insurance
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /employee_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: mentoring
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility
+    - title: Previous Menu
+      payload: /employee_common       
+    condition:
+    - type: slot
+      name: subject_cat
+      value: coaching
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility      
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /social_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: group personal accident insurance
+  - text: What do you want to know about {subject_cat} scheme?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Eligibility
+      payload: /FAQ_eligibility      
+    - title: Benefits
+      payload: /FAQ_benefit
+    - title: Previous Menu
+      payload: /rajbhasha_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: rajbhasha
+  - text: What do you want to know about {subject_cat}?
+    buttons:
+    - title: Claim Process
+      payload: /FAQ_process
+    - title: Duration       
+      payload: /FAQ_duration
+    - title: Previous Menu
+      payload: /service_common      
+    condition:
+    - type: slot
+      name: subject_cat
+      value: appraisal      
+  - text: Information for the {subject} is not available. What would you want to know about?
+    buttons:
+    - title: Service Matters
+      payload: /service_common
+    - title: Compensation and Benefits
+      payload: /compensation_common
+    - title: Employee Development
+      payload: /employee_common
+    - title: Advances
+      payload: /advances_common
+    - title: Social Security Matters
+      payload: /social_common
+    - title: Employee Relations
+      payload: /emp_rel_common
+    - title: Accommodation Related
+      payload: /accommodation_common
+    - title: Rajbhasha
+      payload: /rajbhasha_common
+    - title: Misconduct
+      payload: /misconduct_common
+    - title: Benefits for suspended employee
+      payload: /suspended_common      
+    - title: Others
+      payload: /others_common 
+
+  utter_user:
+  - text: Your login ID & password shall be your intranet id & password
+    condition:
+    - type: slot
+      name: subject_cat
+      value: tna
+  - text: For which portal you need login information?
+
+  utter_default:
+  - text: I'm sorry, I didn't quite understand that. What would you want to know about?
+    buttons:
+    - title: Service Matters
+      payload: /service_common
+    - title: Compensation and Benefits
+      payload: /compensation_common
+    - title: Employee Development
+      payload: /employee_common
+    - title: Advances
+      payload: /advances_common
+    - title: Social Security Matters
+      payload: /social_common
+    - title: Employee Relations
+      payload: /emp_rel_common
+    - title: Accommodation Related
+      payload: /accommodation_common
+    - title: Rajbhasha
+      payload: /rajbhasha_common
+    - title: Misconduct
+      payload: /misconduct_common
+    - title: Benefits for suspended employee
+      payload: /suspended_common       
+    - title: Others
+      payload: /others_common    
+      
+  utter_please_rephrase:
+  - text: What would you want to know about?
+    buttons:
+    - title: Service Matters
+      payload: /service_common
+    - title: Compensation and Benefits
+      payload: /compensation_common
+    - title: Employee Development
+      payload: /employee_common
+    - title: Advances
+      payload: /advances_common
+    - title: Social Security Matters
+      payload: /social_common
+    - title: Employee Relations
+      payload: /emp_rel_common
+    - title: Accommodation Related
+      payload: /accommodation_common
+    - title: Rajbhasha
+      payload: /rajbhasha_common
+    - title: Misconduct
+      payload: /misconduct_common
+    - title: Benefits for suspended employee
+      payload: /suspended_common      
+    - title: Others
+      payload: /others_common      
+  utter_service_common:
+  - text: Questions specific to Service Matters?
+    buttons:
+    - title: Leave
+      payload: /inform_subject{{"subject":"leave"}}
+    - title: Appraisal
+      payload: /inform_subject{{"subject":"appraisal"}}
+    - title: ACGS
+      payload: /inform_subject{{"subject":"acgs"}}
+    - title: Promotion
+      payload: /inform_subject{{"subject":"promotion"}}
+    - title: Transfer
+      payload: /inform_subject{{"subject":"transfer"}}
+    - title: Main Menu 
+      payload: /main_menu       
+
+  utter_compensation_common:
+  - text: Questions specific to Compensation and Benefits?
+    buttons:
+    - title: Mobile
+      payload: /inform_subject{{"subject":"mobile"}}
+    - title: Telecom
+      payload: /inform_subject{{"subject":"telecommunication"}}
+    - title: Laptop
+      payload: /inform_subject{{"subject":"laptop"}}
+    - title: National Award
+      payload: /inform_subject{{"subject":"national award"}}
+    - title: Merit Award
+      payload: /inform_subject{{"subject":"merit award"}}
+    - title: Tour and Travel
+      payload: /inform_subject{{"subject":"tour and travel"}}
+    - title: Night Shift Reimbursement
+      payload: /inform_subject{{"subject":"night shift"}}
+    - title: Pratiphal
+      payload: /inform_subject{{"subject":"pratiphal"}}
+    - title: Benefits for Hardship location
+      payload: /inform_subject{{"subject":"hardship location"}}
+    - title: Benefits for srinagar-leh transmission system
+      payload: /inform_subject{{"subject":"srinagar-leh transmission system"}}
+    - title: Location based Compensatory Allowance
+      payload: /inform_subject{{"subject":"location based compensatory allowance"}}  
+    - title: Benefits of Foreign Posting
+      payload: /inform_subject{{"subject":"foreign posting"}}  
+    - title: Sodexo
+      payload: /inform_subject{{"subject":"sodexo"}}
+    - title: Conveyance Reimbursment
+      payload: /inform_subject{{"subject":"conveyance reimbursment"}}       
+    - title: Perks
+      payload: /inform_subject{{"subject":"perks"}}  
+    - title: Pay fixation
+      payload: /inform_subject{{"subject":"pay fixation"}}  
+    - title: Overtime Allowance
+      payload: /inform_subject{{"subject":"overtime allowance"}} 
+    - title: Benefits for departmental trainees
+      payload: /inform_subject{{"subject":"departmental trainees"}}
+    - title: PRP
+      payload: /inform_subject{{"subject":"prp"}}
+    - title: Uniform Reimbursement
+      payload: /inform_subject{{"subject":"uniform"}}
+    - title: FMTA
+      payload: /inform_subject{{"subject":"fmta"}} 
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_employee_common:
+  - text: Questions specific to Employee Development?
+    buttons:
+    - title: Training Need Assessment
+      payload: /inform_subject{{"subject":"tna"}}
+    - title: Study Leave
+      payload: /inform_subject{{"subject":"study leave"}}
+    - title: Company Sponsored Study
+      payload: /inform_subject{{"subject":"company sponsored study"}}
+    - title: Mentoring
+      payload: /inform_subject{{"subject":"mentoring"}}
+    - title: Coaching
+      payload: /inform_subject{{"subject":"coaching"}}
+    - title: Incentive for acquiring higher education
+      payload: /inform_subject{{"subject":"higher study"}}
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_advances_common:
+  - text: Questions specific to Advances?
+    buttons:
+    - title: Children Higher Education Advance
+      payload: /inform_subject{{"subject":"children education advance"}}
+    - title: Multi Purpose Advance
+      payload: /inform_subject{{"subject":"multi-purpose advance"}}
+    - title: Conyeyance Advance
+      payload: /inform_subject{{"subject":"conveyance advance"}}
+    - title: House Building Advance
+      payload: /inform_subject{{"subject":"hba"}}
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_social_common:
+  - text: Questions specific to Social Security Schemes?
+    buttons:
+    - title: Contributory Pension Plan
+      payload: /inform_subject{{"subject":"contributory pension plan"}}
+    - title: Gratuity Fund
+      payload: /inform_subject{{"subject":"gratuity fund"}}
+    - title: Provident Fund
+      payload: /inform_subject{{"subject":"provident fund"}}
+    - title: Death Relief Scheme
+      payload: /inform_subject{{"subject":"death relief scheme"}}
+    - title: Economic Rehabilitation Scheme
+      payload: /inform_subject{{"subject":"economic rehabilitation"}}
+    - title: Group Personal Accident Insurance
+      payload: /inform_subject{{"subject":"group personal accident insurance"}}
+    - title: Group Insurance
+      payload: /inform_subject{{"subject":"group insurance"}}
+    - title:  Medical Benefits
+      payload: /inform_subject{{"subject":"medical benefits"}}
+    - title:  Medical relaxation claims
+      payload: /inform_subject{{"subject":"medical relaxation"}}  
+    - title:  Saksham scheme
+      payload: /inform_subject{{"subject":"saksham"}}  
+    - title:  Welfare facilities
+      payload: /inform_subject{{"subject":"welfare facilities"}}  
+    - title:  Post retirement medical benefit
+      payload: /inform_subject{{"subject":"post retirement"}}
+    - title:  National Pension Scheme
+      payload: /inform_subject{{"subject":"national pension"}}      
+    - title:  Medical benefit for dependents of deceased employees
+      payload: /inform_subject{{"subject":"deceased employees"}}
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_emp_rel_common:
+  - text: Question specific to Employee Relations?
+    buttons:
+    - title: Grievance Procedure
+      payload: /inform_subject{{"subject":"grievance"}}
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_rajbhasha_common:
+  - text: Question specific to Rajbhasha?
+    buttons:
+    - title: Rajbasha Scheme
+      payload: /inform_subject{{"subject":"rajbhasha"}}
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_others_common:
+  - text: Question specific to Others?
+    buttons:
+    - title: Industrial Training to CA, CMA, CS
+      payload: /inform_subject{{"subject":"industrial training"}}
+    - title: Engaging retired Executives
+      payload: /inform_subject{{"subject":"engaging retired executives"}} 
+    - title: Engaging retired Supervisors
+      payload: /inform_subject{{"subject":"engaging retired supervisors"}}
+    - title: Engagement of Apprentices
+      payload: /inform_subject{{"subject":"engagement of apprentices"}}
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_accommodation_common:
+  - text: Question specific to Accommodation?
+    buttons:
+    - title: HRA
+      payload: /inform_subject{{"subject":"hra"}}      
+    - title: Quarter Allotment
+      payload: /inform_subject{{"subject":"quarter allotment"}}
+    - title: Company Leased Accommodation
+      payload: /inform_subject{{"subject":"company leased accommodation"}}  
+    - title: Retention of Family
+      payload: /inform_subject{{"subject":"retention of family"}}  
+    - title: Guest House accommodation
+      payload: /inform_subject{{"subject":"guest house"}}
+    - title: Main Menu 
+      payload: /main_menu       
+  utter_study_india:
+  - text: 80% of course fee, or Rs. 20 lakhs, whichever is lower
+  utter_study_abroad:
+  - text: 80% of course fee, or Rs. 40 lakhs, whichever is lower
+  utter_study_india_ele:
+  - text: 3 years of service as Regular employee & their Children admitted to/ studying graduation/ post-graduation/ professional courses in India
+  utter_study_abroad_ele:
+  - text: 3 years of service as Regular employee & their Children admitted to/ studying graduation/ post-graduation/ professional courses abroad
+  utter_travel_air_ent:
+  - text: "E9 and Above - Executive Class  \n
+      E6 to E8 - Economy Class  \n
+      E2 to E5 - Economy Class while on Business tours or training"
+  utter_travel_train_ent:
+  - text: "E8 and Above - ACC I Class  \n
+      E2 to E6 - AC II Tier  \n
+      All Supervisors and Workmen in the levels W7 & above.- AC II Tier  \n
+      W1 to W6 - AC III Tier  \n
+      W0 - Sleeper Class"
+  utter_travel_road_ent:
+  - text: "E6 and Above - Actual Taxi Fare  \n
+      E4 to E5 - Taxi Fare limited to Rs 6.1/km  \n
+      E3 - Fare of a single seat in taxi availed limited to Rs.2.30 /kms or actual bus fare.  \n
+      E2, All Supervisors, Workmen W7 and above. - Fare of a single seat in taxi availed limited to Rs.1.10/ Kms or actual bus fare.  \n
+      W0 to W6 - Actual Bus Fare"
+      
+  utter_fp_saarc_ben:    
+  - text: Cash Allowance, Accommodation, Conveyance, Special Cash Allowance for Team Lead,  Special Leave for visiting family Reimburesment of Visa fees, official communication charges, insurance fees, conveyance, excess baggage allowance Continuation of Salary and other benefits, Advances, Insurance Coverage, Medical Facility, Lease/ HRA/ Quarters and Uniform Reimbursement
+  utter_fp_kenya_ben: 
+  - text: Conveyance Reimbursement for local journeys within Kenya, Mobile and Internet connection charges, Cash Allowance, Special Duty Allowance for Project Manager/ Team Lead, Furnished Bachelor Accommodation, Medical Insurance Coverage, Home Passage and Leave, Special Risk Compensation, Excess Baggage Allowance, Reimbursement of Visa fee, resident permit, Insurance during travel, Uniform Reimbursement
+  utter_fp_ethiopia_ben: 
+  - text: Cash Allowance, Special Duty Allowance, Furnished Bachelor Accommodation, Medical Insurance Coverage, Leave & Home Passage, Reimbursement of Visa fee, Insurance during travel, Uniform Reimbursement
+  utter_fp_uganda_ben : 
+  - text: Reimbursement of Conveyance charges if vehicle not arranged, Mobile and Internet connection charges, Cash Allowance, Special Duty Allowance, Furnished Bachelor Accommodation, Medical Insurance Coverage, Home Passage & Leave, Special Additional Leave, Excess Baggage Expenses, reimbursement of visa fee/ resident permit, Bank Charges for carrying foreign currency (conversion charges, charges for travel cards, etc.), Insurance during travel, recoupable imprest account of US $ 500 for Project Manager/Team Lead
+  utter_fp_afg_dub_nig_ben :     
+  - text: Cash Allowance, Accommodation, Conveyance, Disturbance allowance (for Afghanistan & Nigeria), Special Cash Allowance, Daily Allowance for tour within country, Excess Baggage Allowance, Continuation of Salary and other benefits, Insurance Coverage, Medical Facility, Lease/ HRA/ Quarters and Uniform Reimbursement Special Additional Leave, Permission to Take Family, Leave and Air Travel, Special Risk Compensation
+  utter_fp_fiji_ben :    
+  - text:  Conveyance Reimbursement for local journeys within Fiji (if vehicle not provided), Mobile and Internet connection charges, Cash Allowance, Special Duty Allowance for Project Manager/ Team Lead, Furnished Bachelor Accommodation, Medical Insurance Coverage, Home Passage and Leave, Retention of family & transfer Benefits, Excess Baggage Allowance, Reimbursement of Visa fee/ resident permit, Bank Charges for carrying foreign currency (conversion charges, charges for travel cards, etc.),  Insurance during travel, Uniform Reimbursement,  recoupable imprest account of US $ 500 for Project Manager/Team Lead
+  utter_fp_maldova_ben:  
+  - text: Retention of Company Leased Accommodation/HRA Transfer Benefits for the Employee's family, Cash Allowance, Special Duty Allowance, Furnished Bachelor Accommodation, Local Conveyance if vehicle not provided, Reimbursement of Mobile and Internet connection charges, recoupable imprest account of US $ 500 for Project Manager/Team Lead, Excess Baggage Expenses, f visa fee/ resident permit, Bank Charges for carrying foreign currency (conversion charges, charges for travel cards, etc.), Insurance during travel Special Leave & Home Passage, Permission to Take Family, Medical Insurance Coverage
+  
+  utter_fp_saarc_ded:
+  - text: Not Applicable 
+  utter_fp_kenya_ded:
+  - text: No Conveyance Reimbursement for the period of posting
+  utter_fp_ethiopia_ded: 
+  - text: No Conveyance Reimbursement & No Telephone/ Mobile Call facility for the period of posting
+  utter_fp_uganda_ded:  
+  - text: No Conveyance Reimbursement for the period of posting, No entertainment allowance, reimbursement for & wages of Attendant and electricity charges at residential office for Sr. Executives
+  utter_fp_afg_dub_nig_ded:
+  - text: No Location Based Compensatory Allowance
+  utter_fp_fiji_ded:    
+  - text:  No Location Based Compensatory Allowance, No Conveyance Reimbursement in India, No entertainment allowance, reimbursement for wages of Attendant and electricity charges at residential office for Sr. Executives
+  utter_fp_maldova_ded:
+  - text: No Location Based Compensatory Allowance, No Conveyance Reimbursement in India  & No Telephone/ Mobile Call facility, No entertainment allowance, reimbursement for wages of Attendant and electricity charges at residential office for Sr. Executives
+  utter_fp_saarc_pro:
+  - text: Employees posted in foreign assignments in SAARC countries excluding Pakistan and Afghanistan
+  utter_fp_kenya_pro:  
+  - text: Employees posted in foreign assignments in Kenya
+  utter_fp_ethiopia_pro:   
+  - text: Employees posted in foreign assignments in Ethiopia
+  utter_fp_uganda_pro:  
+  - text: Employees posted in foreign assignments in Uganda
+  utter_fp_afg_dub_nig_pro:         
+  - text: Employees posted in foreign assignments in Afghanistan, Dubai & Nigeria
+  utter_fp_fiji_pro:   
+  - text: Employees posted in foreign assignments in Fiji
+  utter_fp_maldova_pro:  
+  - text: Employees posted in foreign assignments in Maldova
+  utter_gi_ord_pro:
+  - text: On death of a concerned employee, intimation will be given to CC-HR by the concerned Regional HR Department
+  utter_gi_edli_pro:
+  - text: On death of a concerned employee, intimation will be given to CC-HR by the concerned Regional HR Department
+  utter_gi_con_pro:
+  - text: On death/ Permanent Total Disablement of a concerned employee, intimation will be given to CC-HR by the concerned Regional HR Department
+  utter_gi_hba_pro:
+  - text: On death/ Permanent Total Disablement of a concerned employee, intimation will be given to CC-HR by the concerned Regional HR Department
+  utter_gi_ord_ben:
+  - text: " 1.E7 and above - Rs. 20,00,000/- \n
+            2. E3 to E6 - Rs. 14,00,000/- \n
+            3. E2 and Below - Rs. 8,00,000/- "
+  utter_gi_edli_ben:
+  - text: Rs. 7,02,000/- for all employees
+  utter_gi_con_ben:
+  - text: Outstanding loan amount or Rs. 16 Lakhs, whichever is less
+  utter_gi_hba_ben:
+  - text: Outstanding loan amount or Rs. 81  Lakhs, whichever is less
+  utter_gi_con_eli:
+  - text: Insurance cover towards outstanding Conveyance Advance and interest, in the event of death
+  utter_gi_hba_eli:
+  - text: Insurance cover towards outstanding HBA and interest, in the event of death
+  utter_gi_con_ded:
+  - text: Recovery of premium from the salary of the employee
+  utter_gi_hba_ded:
+  - text: Recovery of premium from the salary of the employee
+  utter_gpai_pro:
+  - text: " 1. Injured employee shall inform the concerned HR department at the earliest \n
+            2. In case of death of employee, information shall be given by representative/ nominee "
+  utter_gpai_hot_pro:
+  - text: On death of a concerned employee, intimation will be given to the Insurance Company by the concerned Regional HR Department
+  utter_gpai_eli:
+  - text: All employees round the clock, whether on duty or not, on any location in India or abroad, against acidental death or disablement or injury
+  utter_gpai_hot_eli:
+  - text: Employees included in the Hot Line Maintenance team of the concerned region
+  utter_gpai_ben:
+  - text: " 1. Death - 50 times upper limit of pay scale and Dearness Allowance \n
+            2. Permanent Disablemet - % of Sum Insured as per policy \n
+            3. Temporary Disablement - 1% of Sum Insured/ Max. Rs. 3000 per week "
+  utter_gpai_hot_ben:
+  - text: Death - 50 times  upper limit of pay scale and Dearness Allowance, in addition to GPAI
+  utter_rb_aph_pro:
+  - text:  Eligible employee on successful completion of the Hindi examination(s) shall apply through proper channel in the prescribed proforma 
+  utter_rb_ndh_pro:
+  - text:  70 marks for quantum of work done in Hindi and 30 for quality of noting and drafting in Hindi   
+  utter_rb_aph_eli:
+  - text: Incentives for learning Hindi and passing the prescribed qualification  shall be admissible to only non-Hindi knowing employees Acquire working knowledge of Hindi i.e. passing of the Prabodh,Praveen and Pragya examinations.
+  utter_rb_ndh_eli:
+  - text:  All full-time employees
+  utter_rb_pt_eli:
+  - text:  All employees possessing working knowledge in Hindi
+  utter_rb_aph_ben:
+  - text: Cash Award, Lumpsum Award and Monthly payment for a period of 12 months at the rate of one increment, subject to acquiring minimum percentage of marks
+  utter_rb_ndh_ben:
+  - text:  " 1. First - Rs. 5000/- each \n
+             2. Second - Rs. 3000/- each \n
+             3. Third - Rs. 2000/- each "
+  utter_rb_pt_ben:
+  - text:  " 1. 55% to 59% - Rs.4,000/- \n
+            2. 60% to 69% - Rs.7,000/- \n
+            3. 70% & above - Rs. 10,000/- "
+ 
+  utter_app_e8_e9_pro:
+  - text: " 1. Respective HR department needs to initiate the appraisal. \n
+            2. Employee will be able to initiate the appraisal afterwards. \n
+            3. Go to ESS> Employee Login > Employee Self Service > Performance Appraisal > Appraisal-Executive E8 and E9 > Initiate Appraisal "
+  utter_app_e2_e7_pro:
+  - text: Go to ESS> Employee Login > Employee Self Service > Performance Appraisal > Appraisal-Executive E2 to E7 & Supervisors > Initiate Appraisal
+  utter_app_sup_pro:
+  - text: Go to ESS> Employee Login > Employee Self Service > Performance Appraisal > Appraisal-Executive E2 to E7 & Supervisors > Initiate Appraisal
+  utter_app_wor_pro:
+  - text: " 1. Shall be initiated by the reporting officer. \n
+            2. Go to ESS> Employee Login > Employee Self Service > Performance Appraisal > Appraisal-Workmen > Initiate Appraisal "
+  utter_app_e8_e9_dur:
+  - text: Every Financial Year
+  utter_app_e2_e7_dur:
+  - text: " 1. E7 - Every Financial Year \n
+            2. Executives upto E6 - Every Calendar Year "
+  utter_app_sup_dur:
+  - text:  Every Calendar Year
+  utter_app_wor_dur:
+  - text: Every Calendar Year 
+  utter_lev_enc_pro:
+  - text: Go to ESS> Employee Login > Employee Self Service > Payment > Encash your available leaves
+  utter_spe_lev_enc_pro:
+  - text: "Will be encashed automatically and paid along with January month's salary, Encashable SAL balance of retiring employees shall be encashed and paid with their last month's salary"
+  utter_lev_enc_ent:
+  - text: EL balance (except for EL credited in present half year) can be encashed.
+  utter_spe_lev_enc_ent:
+  - text: "1. Max. 13 days \n
+          2. Max 23 days for NER (except Guwahati & Shillong)& Cagtegory-II locations"
+  utter_lev_enc_dur:
+  - text: Twice a year
+  utter_conveyance_car_ent:
+  - text: "12 months Basic Pay for Electric Vehicles (Max ceiling Rs. 6 Lakhs) or  \n 
+           10 months Basic Pay for other vehicles (Max ceiling Rs. 6 lakhs) or  \n 
+           Actual cost of vehicle, whichever is lower." 
+    condition:
+    - type: slot
+      name: level
+      value: workmen
+  - text: "12 months Basic Pay for Electric Vehicles (Max ceiling Rs. 6 Lakhs) or  \n 
+           10 months Basic Pay for other vehicles (Max ceiling Rs. 6 lakhs) or  \n 
+           Actual cost of vehicle, whichever is lower." 
+    condition:
+    - type: slot
+      name: level
+      value: supervisors
+  - text: "Upto E5 - 8 Lakhs  \n
+       E6 - E7 - 12 Lakhs  \n
+       E8 & above  - 15 Lakhs"
+    condition:
+    - type: slot
+      name: level
+      value: executives
+  - text: Details not available in HR Policy. Please contact HR.
+    condition:
+    - type: slot
+      name: level
+      value: board level
+  - text: Not eligible
+    condition:
+    - type: slot
+      name: level
+      value: trainees
+  utter_conveyance_bike_ent:
+  - text: Actual cost or Rs. 1,00,000/- whichever is lower
+  utter_conveyance_bike_rem_ent:
+  - text: " All Executives - 45 litres of petrol \n
+            W0 to W11 - 25 litres of petrol \n
+            WSG - 35 litres of petrol \n
+            S1 to S4 - 25 litres of petrol \n
+            SSG - 35 litres of petrol \n
+            Addl fixed amount for site posting/ hardship locations "
+  utter_conveyance_car_rem_ent:
+  - text: " Upto E3 - 75 litres of petrol \n
+            E4, E5 - 95 litres of petrol \n
+            E6, E7 - 100 litres of petrol \n
+            E8 & above - 120 litres of petrol \n
+            W7 to W10; S1 to S3  - 55 litres \n
+            W11 to WSG; S4 to SSG - 60 litres "    
+  utter_merit_qual:
+  - text: "X level - CGPA = 10.0/ 95% and above  \n
+     Talent Search Exams - Rs. 2000/-  \n
+     Diploma - 1st position only if total examinees less than 30  \n
+     Others - 1st, 2nd & 3rd position in respective exam/ degree"
+  utter_suspended_common:
+  - text: "1. Subsistence Allowance of 50% Basic+DA. \n
+           2. If suspension > 6 months, subsistence allowance may be increased to 75% of Basic if period prolonged due to reason not attributable to employee or reduced to 25% of Basic if period prolonged due to reason attributable to employee. \n
+           3. No subsistence allowance payable if bail is not granted for employees arrested by police"
+  utter_misconduct_common:
+  - text: Misconduct Rule are following.
+    buttons:
+    - title: Rule 1 to Rule 5
+      payload: /rule_1_to_5
+    - title: Rule 6 to Rule 15
+      payload: /rule_6_to_15
+    - title: Rule 16 to Rule 25
+      payload: /rule_16_to_25  
+    - title: Rule 26 to Rule 34
+      payload: /rule_26_to_34
+  utter_rule_1_to_5:
+  - text: " Rule-1 Without prejudice to the generality of the term misconduct, the following acts of omission and commission shall be treated as misconduct \n
+                 a. Theft, Fraud or dishonesty in connection with the business or property of the company. \n 
+                 b. Theft, Fraud or dishonesty with the property of another person within the premises of the company. \n
+                 c. Fraud, Dishonesty and Offences under Cyber laws leading to misrepresentation, breach of confidentiality and privacy. \n
+                 d. Securing or causing others to secure unauthorized access to any confidential electronic communication of the company or misuse of the electronic communication of the company or the computer system or network which may cause damage to the company. \n
+                 e. Publishing, transmitting or causing to publish in Electronic form any material, which appeals to prurient interest and unauthorized passing of information from electronic media. \n
+                 f. Destroying, cancelling or altering or causing others to destroy, cancel or alter confidential computer programme including computer command, design and layout, computer system and computer network, etc. \n
+                 g. Viewing obscene material/scene and involving oneself in indecent chatting/communication through the electronic communication/ computer system of the company. \n
+            Rule-2 Demanding, taking or giving bribes or any illegal gratification. \n
+                 a. Obtaining advertisements/ sponsorship etc. by the associations/ NGOs formed by either employees or their spouse / family members etc. from contractors, vendors, customers or other persons having commercial relationship / official dealing with the Company. \n 
+            Rule-3 Possession of pecuniary resources or property disproportionate to the known sources of income by the employee or on his behalf by another person, which the employee cannot satisfactorily account for. \n
+            Rule-4 Furnishing false information regarding name, age, father’s name, qualification, ability or previous service or any other matter germane to the employment at the time of employment or during the course of employment. \n
+            Rule-5 Acting in a manner prejudicial to the interests of the Company. "
+  utter_rule_6_to_15:
+  - text: " Rule-6 Willful insubordination or disobedience, whether or not in combination with others, of any lawful and reasonable order of his superior. \n
+            Rule-7 Absence without leave or overstaying the sanctioned leave for more than four consecutive days without sufficient grounds or proper or satisfactory explanation. \n
+            Rule-8 Habitual late or irregular attendance. \n
+            Rule-9 Neglect of work or negligence in the performance of duty including malingering or slowing down of work.\n
+            Rule-10 Damage to any property of the company. \n
+            Rule-11 Interference or tampering with any safety devices installed in or about the premises of the company. \n
+            Rule-12 Drunkenness or riotous or disorderly or indecent behaviour in the premises of the company or outside such premises where such behaviour is related to or connected with the employment. \n
+            Rule-13 Gambling within the premises. \n
+            Rule-14 Smoking within the premises of the establishment where it is prohibited. \n
+            Rule-15 Collection without the permission of the competent authority of any money within the premises of the company except as sanctioned by any law of the land for the time being in force or rules of the company."
+  utter_rule_16_to_25:
+  - text: " Rule-16 Sleeping while on duty. \n
+            Rule-17 Commission of any act which amounts to a criminal offence involving moral turpitude. \n
+            Rule-18 Absence from the employee’s appointed place of work without permission or sufficient cause. \n
+            Rule-19 Purchasing properties, machinery, stores etc. from or selling properties, machinery, stores etc., to the company without express permission in writing from the competent authority.\n
+            Rule-20 Commission of any act subversive of discipline or of good behavior. \n
+            Rule-21 Abetment of or attempt at abetment of any act which amounts to misconduct. \n
+            Rule-22 Making false allegations against another employee/key officials/Company’s Directors/CMD. Use of insolent or impertinent or unparliamentarily language in any official dealing/correspondence or in any representation including appeal or in any forum/meeting. \n
+            Rule-23 Failure of the employee to comply with the terms and conditions associated with the loan/advance granted to him under the Company’s Rules. \n
+            Rule-24 Violation or non-compliance with the Company’s Rules/ Policies/ Manuals/ Circulars/ Notices/ expressed instructions. \n
+            Rule-25 Unauthorized use or occupation of the Company’s quarters/land or other movable or immovable property."                 
+  utter_rule_26_to_34:
+  - text: " Rule-26 Assaulting or threatening or intimidating any employee of the Company. \n
+            Rule-27 Breach of any law applicable to the establishment or the Company or Conduct Rules or any other Rules or specific orders issued by the Company from time to time. \n
+            Rule-28  Writing of anonymous letters, addressing appeals or representations to any person other than the appropriate or appellate authority and forwarding advance copies of appeals or representation to any other person outside the Company. \n
+            Rule-29 Distribution or exhibition in the Company’s premises any bills, posters, pamphlets or papers or causing them to be displayed by means of signs or writing or other visible representation, any matter prejudicial to the company without previous sanction of the management. \n
+            Rule-30 Refusal to work on Holidays or on Sundays or beyond working hours when notified/directed to do so in the exigencies of Company’s interest. \n
+            Rule-31 Gherao, coercion, intimidation, wrongful confinement or use of force or forcibly detaining any of the Company’s employees. Shouting/use of defamatory or disrespectful statement/slogans in the Company’s premises. \n
+            Rule-32 Refusal to accept any order or notice communicated in writing. \n
+            Rule-33 Adopting a dilatory attitude, leading to delay in decision making and or harassment of the public. \n
+            Rule-34 Any other act of delinquency unbecoming of a Public Servant."
+
+
+                 
+actions:
+- action_level_check
+- action_restarted
+- action_slot_reset
+- action_subject2_check
+- action_subject_check
+- action_tables
+- action_sender
+- utter_advances_common
+- utter_ask_grade_executives
+- utter_ask_grade_workmen
+- utter_ask_level
+- utter_eligibility
+- utter_entitlement
+- utter_greet
+- utter_inform_subject
+- utter_please_rephrase
+- utter_process
+- utter_rates
+- utter_user
+- validate_level2_form
+- validate_level_form
+- validate_level3_form
+forms:
+  level_form:
+    required_slots:
+    - subject_cat
+  level3_form:
+    required_slots:
+    - subject_cat
+  level2_form:
+    required_slots:
+    - subject2
+    - level
+  travel_form:
+    required_slots:
+    - travel_mode
+
